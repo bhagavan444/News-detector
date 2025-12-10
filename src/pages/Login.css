@@ -1,0 +1,391 @@
+/* === Custom Properties for Reusability === */
+:root {
+  --primary-color: #b91c1c; /* Deep red */
+  --primary-light: #ef4444; /* Vibrant red */
+  --secondary-color: #111111; /* Black for secondary elements */
+  --secondary-light: #4b5563; /* Dark gray for highlights */
+  --text-light: #ffffff; /* White for text on dark backgrounds */
+  --text-dark: #111111; /* Black for primary text */
+  --background-light: #fee2e2; /* Subtle red-tinted background */
+  --card-bg-light: #ffffff; /* Clean white for cards */
+  --card-bg-dark: #111111; /* Black for dark mode */
+  --shadow-sm: 0 6px 14px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 24px rgba(0, 0, 0, 0.15);
+  --font-family: "Inter", system-ui, -apple-system, sans-serif;
+  --border-radius: 12px;
+}
+
+/* === Global Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-container {
+  font-family: var(--font-family);
+  background: linear-gradient(145deg, var(--background-light), #fee2e2);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+/* === Loading Overlay === */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* === Login Card === */
+.login-card {
+  background: var(--card-bg-light);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  animation: slideUp 0.6s ease-out;
+}
+
+/* === Title and Subtitle === */
+.login-title {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.login-subtitle {
+  font-size: 1.1rem;
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+/* === Mode Toggle === */
+.mode-toggle {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.mode-btn {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--border-radius);
+  background: #111111;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.mode-btn.active {
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  color: var(--text-light);
+}
+
+.mode-btn:hover:not(:disabled),
+.mode-btn:focus:not(:disabled) {
+  transform: translateY(-2px);
+  background: var(--primary-light);
+  color: var(--text-light);
+}
+
+.mode-btn:disabled {
+  background: #4b5563;
+  cursor: not-allowed;
+}
+
+/* === Form Group === */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-field {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #111111;
+  border-radius: var(--border-radius);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(185, 28, 28, 0.3);
+}
+
+.input-field:disabled {
+  background: #111111;
+  color: var(--text-light);
+  cursor: not-allowed;
+}
+
+.password-field {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* === Messages === */
+.error-msg {
+  color: var(--primary-color);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.success-msg {
+  color: #059669;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* === Buttons === */
+.primary-btn {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--border-radius);
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  color: var(--text-light);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.primary-btn:hover:not(:disabled),
+.primary-btn:focus:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(90deg, var(--primary-light), var(--secondary-color));
+}
+
+.primary-btn:disabled {
+  background: #4b5563;
+  cursor: not-allowed;
+}
+
+.forgot-btn {
+  font-size: 0.95rem;
+  color: var(--primary-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.forgot-btn:hover:not(:disabled),
+.forgot-btn:focus:not(:disabled) {
+  color: var(--primary-light);
+  text-decoration: underline;
+}
+
+.forgot-btn:disabled {
+  color: #4b5563;
+  cursor: not-allowed;
+}
+
+.divider {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #111111;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 2px solid #111111;
+  border-radius: var(--border-radius);
+  background: var(--text-light);
+  color: var(--text-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.google-btn:hover:not(:disabled),
+.google-btn:focus:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.google-btn:disabled {
+  background: #111111;
+  cursor: not-allowed;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* === Spinner === */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--text-light);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* === Animations === */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* === Responsive Design === */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 1rem;
+  }
+  .login-card {
+    padding: 1.5rem;
+  }
+  .login-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+  .login-subtitle {
+    font-size: 1rem;
+  }
+  .mode-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* === Dark Mode Support === */
+@media (prefers-color-scheme: dark) {
+  .login-container {
+    background: linear-gradient(145deg, #111111, #1f1f1f);
+  }
+  .login-card {
+    background: #111111;
+    color: var(--text-light);
+  }
+  .login-title {
+    color: var(--text-light);
+  }
+  .login-subtitle, .divider {
+    color: #ef4444;
+  }
+  .input-field {
+    background: #111111;
+    border-color: #4b5563;
+    color: var(--text-light);
+  }
+  .input-field:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+  }
+  .input-field:disabled {
+    background: #1f1f1f;
+  }
+  .mode-btn {
+    background: #111111;
+    color: var(--text-light);
+  }
+  .mode-btn.active {
+    background: linear-gradient(90deg, var(--primary-light), var(--secondary-color));
+  }
+  .mode-btn:hover:not(:disabled) {
+    background: var(--secondary-color);
+  }
+  .google-btn {
+    background: #111111;
+    color: var(--text-light);
+    border-color: #4b5563;
+  }
+  .google-btn:hover:not(:disabled) {
+    border-color: var(--primary-light);
+  }
+  .error-msg, .success-msg {
+    color: var(--text-light);
+  }
+  .forgot-btn {
+    color: var(--primary-light);
+  }
+  .forgot-btn:hover:not(:disabled) {
+    color: var(--secondary-light);
+  }
+}
+
+/* === Accessibility Enhancements === */
+@media (prefers-reduced-motion: reduce) {
+  .login-card, .mode-btn, .primary-btn, .google-btn, .error-msg, .success-msg {
+    animation: none;
+    transition: none;
+  }
+}

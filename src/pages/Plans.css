@@ -1,0 +1,258 @@
+/* ============================= PLANS.CSS – FINAL 2026 SAAS MASTERPIECE ============================= */
+/* The most beautiful, trustworthy, and highest-converting pricing page in the world */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+.plans-main {
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --success: #10b981;
+  --danger: #dc2626;
+  --accent-glow: rgba(99, 102, 241, 0.35);
+
+  --bg: #f8f9ff;
+  --card-bg: rgba(255, 255, 255, 0.96);
+  --input-bg: rgba(255, 255, 255, 0.98);
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: rgba(226, 232, 240, 0.8);
+  --shadow: 0 25px 80px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 40px 120px rgba(0, 0, 0, 0.15);
+  --radius: 38px;
+  --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f0ff 50%, #dde5ff 100%);
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  line-height: 1.8;
+  padding: 10rem 5% 8rem;
+}
+
+/* DARK MODE — Deep cosmic luxury */
+.dark .plans-main {
+  --bg: #0a0a15;
+  --card-bg: rgba(15, 15, 35, 0.97);
+  --input-bg: rgba(25, 25, 55, 0.98);
+  --text: #f0f4ff;
+  --text-muted: #a0a8d0;
+  --border: rgba(100, 100, 200, 0.2);
+  background: #0a0a15;
+}
+
+/* HERO HEADER */
+.plans-hero {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+.plans-hero h1 {
+  font-size: 4.2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899, #f87171);
+  -webkit-background-clip: text;
+  color: transparent;
+  line-height: 1.1;
+}
+.plans-hero p {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+/* BILLING TOGGLE — Premium pill */
+.pricing-toggle {
+  display: inline-flex;
+  background: var(--card-bg);
+  border-radius: 60px;
+  padding: 0.6rem;
+  box-shadow: inset 0 6px 20px rgba(0,0,0,0.12);
+  border: 1px solid var(--border);
+}
+.pricing-toggle button {
+  padding: 1.1rem 3rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  background: transparent;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+.pricing-toggle button.active {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  box-shadow: 0 12px 40px var(--accent-glow);
+}
+
+/* PLAN CARDS — Glassmorphic luxury */
+.plans-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 3.5rem;
+  margin-bottom: 6rem;
+}
+.plan-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(32px);
+  border-radius: var(--radius);
+  padding: 3.5rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.plan-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 10px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.plan-card:hover {
+  transform: translateY(-20px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Featured Pro Card */
+.plan-card.featured {
+  border: 3px solid #6366f1;
+  box-shadow: 
+    0 50px 140px rgba(99, 102, 241, 0.4),
+    0 25px 80px rgba(0, 0, 0, 0.15);
+  transform: scale(1.06);
+}
+.plan-card.featured::before {
+  background: linear-gradient(90deg, #10b981, #34d399, #22d3ee, #06b6d4);
+}
+
+/* Price */
+.plan-card .text-3xl {
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin: 1rem 0;
+}
+
+/* CTA Buttons */
+.plan-btn {
+  width: 100%;
+  padding: 1.4rem;
+  border-radius: 60px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+  transition: var(--transition);
+}
+.plan-btn:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(99, 102, 241, 0.5);
+}
+
+/* COMPARISON TABLE */
+.plans-comparison table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.plans-comparison th {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  padding: 1.8rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.plans-comparison td {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.plans-comparison tr:hover {
+  background: rgba(99, 102, 241, 0.08);
+}
+
+/* ENTERPRISE FEATURES */
+.advanced-section {
+  background: var(--card-bg);
+  padding: 4rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  font-size: 1.05rem;
+}
+
+/* BILLING CTA */
+.billing-cta {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+  border-radius: var(--radius);
+  padding: 5rem;
+  text-align: center;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  box-shadow: 0 30px 100px rgba(99, 102, 241, 0.2);
+}
+.billing-cta button {
+  padding: 1.4rem 3.5rem;
+  font-size: 1.3rem;
+  border-radius: 60px;
+}
+
+/* CONTACT MODAL */
+.fixed.inset-0 {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.max-w-2xl {
+  max-width: 52rem;
+}
+.bg-white {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 4rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 6rem 0 4rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  border-top: 1px solid var(--border);
+}
+footer a {
+  color: #6366f1;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .plans-cards {
+    grid-template-columns: 1fr;
+  }
+  .plan-card.featured {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .plans-main { padding: 9rem 1.5rem 5rem; }
+  .plans-hero h1 { font-size: 3rem; }
+  .plan-card { padding: 2.5rem; }
+}
