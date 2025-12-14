@@ -115,3 +115,12 @@ Author
 Siva Satya Sai Bhagavan Gopalajosyula
 B.Tech – Artificial Intelligence & Data Science
 GitHub: https://github.com/bhagavan444
+<img width="1919" height="1084" alt="image" src="https://github.com/user-attachments/assets/dd7ad67d-c333-4e73-bc31-a7d1ecd5b15b" />
+<img width="1917" height="1072" alt="image" src="https://github.com/user-attachments/assets/eef530b9-da4b-4af5-a80a-e35792173666" />
+<img width="1919" height="1087" alt="image" src="https://github.com/user-attachments/assets/6c9f5992-bb6f-4868-9c01-0072b6a74935" />
+<img width="1917" height="1080" alt="image" src="https://github.com/user-attachments/assets/7aaf56ae-832b-40de-a549-b3b586591eaa" />
+
+
+
+
+
