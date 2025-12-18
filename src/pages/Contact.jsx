@@ -5,45 +5,43 @@ function Contact() {
   return (
     <main className="contact-main">
 
-      {/* Contact Card */}
+      {/* ================= CONTACT INTRO ================= */}
       <section className="contact-card">
         <h1 className="contact-title">
-          <span className="contact-emoji">📬</span> Get in Touch
+          Contact & Collaboration
         </h1>
 
         <p className="contact-intro">
-          Building solutions at the intersection of <strong>AI and Media Integrity</strong>.  
-          Whether you're exploring collaborations, aiming to integrate misinformation detection
-          into your platform, or want to enhance digital trust using AI —
-          I'm always open to impactful discussions.
+          NewsGuard AI focuses on building intelligent solutions at the intersection of
+          <strong> Artificial Intelligence, Media Integrity, and Trustworthy Information Systems</strong>.
           <br /><br />
-          <span className="contact-highlight">
-            Reach out today — together we can fight misinformation and strengthen trustworthy digital ecosystems.
-          </span>
+          Organizations, researchers, and teams interested in integrating
+          AI-powered misinformation detection, credibility analysis, or
+          real-time media intelligence are welcome to connect.
         </p>
 
-        {/* Direct Contact Methods */}
+        {/* ================= DIRECT CONTACT ================= */}
         <div className="contact-methods">
           <a
             className="contact-method"
             href="tel:+917569205626"
-            aria-label="Call G S S S Bhagavan at +91 7569205626"
+            aria-label="Call NewsGuard AI support"
           >
-            <span className="contact-icon">📞</span>
-            <span className="contact-details">+91 7569205626</span>
+            <span className="contact-details">+91 75692 05626</span>
           </a>
 
           <a
             className="contact-method"
             href="mailto:g.sivasatyasaibhagavan@gmail.com"
-            aria-label="Email G S S S Bhagavan"
+            aria-label="Email NewsGuard AI"
           >
-            <span className="contact-icon">✉️</span>
-            <span className="contact-details">g.sivasatyasaibhagavan@gmail.com</span>
+            <span className="contact-details">
+              g.sivasatyasaibhagavan@gmail.com
+            </span>
           </a>
         </div>
 
-        {/* Social Buttons */}
+        {/* ================= SOCIAL LINKS ================= */}
         <div className="contact-socials">
           <a
             href="https://github.com/bhagavan444"
@@ -72,100 +70,124 @@ function Contact() {
           </a>
         </div>
 
-        {/* CTA Button */}
+        {/* ================= PRIMARY CTA ================= */}
         <a
           href="mailto:g.sivasatyasaibhagavan@gmail.com"
-          className="abt-cta-btn contact-primary-btn"
+          className="contact-primary-btn"
         >
-          Contact Me Now
+          Request Collaboration
         </a>
       </section>
 
-      {/* Mini Contact Form */}
+      {/* ================= CONTACT FORM ================= */}
       <section className="contact-form-card">
-        <h2 className="contact-section-title">Send a Quick Message</h2>
+        <h2 className="contact-section-title">Send a Message</h2>
         <p className="contact-form-desc">
-          Have a question or collaboration idea? Leave a message and I’ll respond shortly.
+          Share your inquiry or collaboration proposal and our team will respond promptly.
         </p>
+
         <form className="contact-form">
-          <input type="text" placeholder="Your Name" className="contact-input" required />
-          <input type="email" placeholder="Your Email" className="contact-input" required />
-          <textarea placeholder="Your Message..." rows="4" className="contact-textarea" required />
+          <input
+            type="text"
+            placeholder="Full Name"
+            className="contact-input"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Business Email"
+            className="contact-input"
+            required
+          />
+          <textarea
+            placeholder="Message / Requirements"
+            rows="4"
+            className="contact-textarea"
+            required
+          />
           <button type="submit" className="contact-submit-btn">
-            Send Message
+            Submit Inquiry
           </button>
         </form>
       </section>
 
-      {/* Collaboration Section */}
+      {/* ================= COLLABORATION ================= */}
       <section className="contact-collab-card">
-        <h2 className="contact-section-title">Collaboration Opportunities</h2>
+        <h2 className="contact-section-title">Collaboration Areas</h2>
 
         <p className="contact-collab-text">
-          I collaborate with <strong>media organizations</strong>,
-          <strong>research groups</strong>, <strong>AI ethics teams</strong>,
-          <strong>fact-checking units</strong>, and <strong>cybersecurity analysts</strong>
-          who want to strengthen digital news verification using AI.
+          We collaborate with <strong>media organizations</strong>,
+          <strong> research institutions</strong>,
+          <strong> AI ethics teams</strong>, and
+          <strong> enterprise platforms</strong> focused on
+          strengthening information credibility and trust.
         </p>
 
         <ul className="collab-list">
-          <li>📰 Fake News & Misinformation Detection</li>
-          <li>🔍 NLP-based Credibility Scoring</li>
-          <li>📊 Real-Time News Monitoring Dashboards</li>
-          <li>🤖 AI/ML Model Development & Deployment</li>
-          <li>🌐 MERN + Flask Full-Stack Integrations</li>
+          <li>AI-Based Fake News & Misinformation Detection</li>
+          <li>NLP-Driven Credibility & Trust Scoring</li>
+          <li>Real-Time Media Monitoring Dashboards</li>
+          <li>AI/ML Model Development & Deployment</li>
+          <li>Full-Stack AI Platform Integrations (MERN / Flask)</li>
         </ul>
 
         <p className="contact-collab-bottom">
-          If your work involves truth, trust, or media integrity — let’s build something meaningful!
+          If your organization works with high-impact information systems,
+          we welcome discussions on collaboration and integration.
         </p>
       </section>
 
-      {/* Contact FAQ */}
+      {/* ================= FAQ ================= */}
       <section className="contact-faq-card">
         <h2 className="contact-section-title">Frequently Asked Questions</h2>
 
         <div className="faq-item">
-          <strong>📌 What is your typical response time?</strong>
-          <p>Most messages are answered within 24 hours.</p>
+          <strong>What is the typical response time?</strong>
+          <p>Most inquiries are addressed within one business day.</p>
         </div>
 
         <div className="faq-item">
-          <strong>📌 Do you work on misinformation research?</strong>
-          <p>Yes — I collaborate on projects involving NLP, fake news classification, and trust scoring.</p>
+          <strong>Do you support research collaborations?</strong>
+          <p>
+            Yes. We actively collaborate on NLP, misinformation detection,
+            and AI-driven media intelligence initiatives.
+          </p>
         </div>
 
         <div className="faq-item">
-          <strong>📌 Can I request a demo?</strong>
-          <p>Absolutely. Email me to schedule a walkthrough of the Fake News Detector platform.</p>
+          <strong>Can I request a product demonstration?</strong>
+          <p>
+            Yes. Please reach out via email to schedule a platform walkthrough.
+          </p>
         </div>
       </section>
 
-      {/* Availability / Support Hours */}
+      {/* ================= AVAILABILITY ================= */}
       <section className="contact-hours-card">
         <h2 className="contact-section-title">Availability</h2>
         <p className="contact-hours-text">
-          <strong>Monday – Saturday:</strong> 10:00 AM – 6:00 PM  
+          <strong>Monday – Saturday:</strong> 10:00 AM – 6:00 PM IST  
           <br />
-          <strong>Sunday:</strong> Available for urgent inquiries only
+          <strong>Sunday:</strong> Limited availability for priority requests
         </p>
       </section>
 
-      {/* Location Info */}
+      {/* ================= LOCATION ================= */}
       <section className="contact-location-card">
         <h2 className="contact-section-title">Location</h2>
         <p>
           Based in <strong>Eluru, Andhra Pradesh, India</strong>.  
-          Open to <strong>remote collaborations</strong> with teams across the globe.
+          Open to <strong>remote and global collaborations</strong>.
         </p>
       </section>
 
-      {/* Footer Note */}
+      {/* ================= FOOTER ================= */}
       <footer className="contact-footer-note">
-        © {new Date().getFullYear()} G S S S Bhagavan — AI Developer (Fake News & NLP).  
+        © {new Date().getFullYear()} NewsGuard AI.  
         <br />
-        Building tools that make information safer, smarter, and more trustworthy.
+        Building enterprise-grade solutions for trustworthy information systems.
       </footer>
+
     </main>
   );
 }

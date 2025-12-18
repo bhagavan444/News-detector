@@ -4,239 +4,196 @@ import "./About.css";
 function About() {
   return (
     <main className="abt-main">
-      {/* ========================= HERO SECTION ========================= */}
+
+      {/* ================= HERO ================= */}
       <section className="abt-hero">
         <div className="abt-hero-inner">
-          <div className="abt-avatar-card">
-            <img
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-              alt="Profile"
-              className="abt-avatar"
-            />
-          </div>
 
           <div className="abt-intro">
-            <h1 className="abt-name">Fake News Detection & Credibility AI Platform</h1>
+            <h1 className="abt-name">NewsGuard AI</h1>
 
             <p className="abt-title">
               <span className="gradient-text">
-                AI-Powered Misinformation Detection • Real-Time Verification • Trust Intelligence
+                Enterprise-Grade News Credibility & Misinformation Intelligence Platform
               </span>
             </p>
 
-            <div className="abt-location">
-              <span><strong>Developed by:</strong> G S S S Bhagavan</span>
-              <br />
-              <span><strong>Program:</strong> B.Tech – AI & Data Science</span>
-              <br />
-              <span><strong>Institution:</strong> Ramachandra College of Engineering, Eluru</span>
-            </div>
+            <p className="abt-description">
+              NewsGuard AI is a scalable, explainable, and real-time platform designed to help
+              organizations assess the credibility of digital news content and mitigate the
+              risks associated with misinformation.
+            </p>
 
-            <blockquote className="abt-quote">
-              <span>
-                “Combating misinformation through intelligent, transparent, and explainable AI —
-                empowering people to trust what they read in a digital-first world.”
-              </span>
-            </blockquote>
+            <div className="abt-location">
+              <span><strong>Domain:</strong> Artificial Intelligence & Data Science</span><br />
+              <span><strong>Focus Areas:</strong> NLP, Explainable AI, Media Intelligence</span><br />
+              <span><strong>Deployment:</strong> Web-based SaaS (Prototype)</span>
+            </div>
           </div>
+
         </div>
       </section>
 
-      {/* ========================= QUICK HIGHLIGHTS (HR FOCUSED) ========================= */}
+      {/* ================= BUSINESS HIGHLIGHTS ================= */}
       <section className="abt-card abt-highlights">
         <div className="highlight-grid">
           <div className="highlight">
-            <div className="highlight-value">95%</div>
-            <div className="highlight-label">Prototype Detection Accuracy</div>
-          </div>
-          <div className="highlight">
             <div className="highlight-value">Real-Time</div>
-            <div className="highlight-label">Instant headline credibility scoring</div>
+            <div className="highlight-label">Instant credibility assessment</div>
           </div>
           <div className="highlight">
             <div className="highlight-value">Explainable AI</div>
-            <div className="highlight-label">Transparent reasoning for each classification</div>
+            <div className="highlight-label">Transparent reasoning for decisions</div>
           </div>
           <div className="highlight">
-            <div className="highlight-value">24/7</div>
-            <div className="highlight-label">Automated misinformation monitoring</div>
+            <div className="highlight-value">Enterprise Ready</div>
+            <div className="highlight-label">Scalable & modular architecture</div>
+          </div>
+          <div className="highlight">
+            <div className="highlight-value">Secure</div>
+            <div className="highlight-label">Privacy-first prototype design</div>
           </div>
         </div>
-
-        <p className="abt-description" style={{ marginTop: 18 }}>
-          Designed for media teams, researchers, and institutions — this platform helps analyze
-          news credibility, reduce misinformation spread, and provide fact-checking insights within seconds.
-        </p>
       </section>
 
-      {/* ========================= PROJECT OVERVIEW ========================= */}
+      {/* ================= PLATFORM OVERVIEW ================= */}
       <section className="abt-card abt-project-card fade-in">
-        <h2 className="abt-section-title">About the Project</h2>
+        <h2 className="abt-section-title">Platform Overview</h2>
 
         <p className="abt-description">
-          The <strong>Fake News Detection & Credibility AI Platform</strong> is a modern, modular,
-          and explainable solution for evaluating the trustworthiness of digital news content.
-          It leverages NLP-based heuristics, machine learning models, and linguistic cues
-          to estimate credibility scores and highlight risky patterns.
+          NewsGuard AI provides an intelligent framework for analyzing digital news content using
+          natural language processing techniques, heuristic analysis, and explainable AI principles.
+          The platform generates credibility scores along with interpretable reasoning, enabling
+          users to make informed decisions with confidence.
         </p>
 
         <ul className="abt-values">
           <li>
-            <span className="abt-value-icon">📰</span>
-            <strong>Credibility Intelligence:</strong> Score calculation using context patterns,
-            language structure, and source reliability cues.
+            <strong>Credibility Scoring Engine:</strong> Evaluates content structure, language tone,
+            and contextual signals to estimate trustworthiness.
           </li>
           <li>
-            <span className="abt-value-icon">🤖</span>
-            <strong>Explainable AI:</strong> Every result includes a human-readable reasoning breakdown.
+            <strong>Explainability Layer:</strong> Human-readable breakdown of AI decisions for
+            auditability and compliance.
           </li>
           <li>
-            <span className="abt-value-icon">⚡</span>
-            <strong>Real-time Monitoring:</strong> Detect suspicious trending headlines instantly.
+            <strong>Real-Time Monitoring:</strong> Detects potentially risky or misleading headlines
+            as they emerge.
           </li>
           <li>
-            <span className="abt-value-icon">🔐</span>
-            <strong>Safe Processing:</strong> Local storage history, secure client-side computation (prototype).
-          </li>
-          <li>
-            <span className="abt-value-icon">🌐</span>
-            <strong>Multi-Language Support:</strong> Extendable to analyze content in regional languages.
+            <strong>Modular Architecture:</strong> Easily extendable with advanced ML models and APIs.
           </li>
         </ul>
       </section>
 
-      {/* ========================= USE CASES FOR HR / EDU ========================= */}
+      {/* ================= ENTERPRISE USE CASES ================= */}
       <section className="abt-card abt-usecases fade-in">
-        <h2 className="abt-section-title">Use Cases (Media / Research / Education)</h2>
+        <h2 className="abt-section-title">Enterprise Use Cases</h2>
 
         <div className="usecase-grid">
           <div className="usecase">
-            <h3>Newsroom Fact-Checking</h3>
-            <p>Assist journalists by providing instant credibility insights before publishing.</p>
+            <h3>Media & Publishing</h3>
+            <p>
+              Assist editorial teams by validating news credibility before publication.
+            </p>
           </div>
 
           <div className="usecase">
-            <h3>Academic Research</h3>
-            <p>Analyze misinformation patterns, sentiment biases, and linguistic anomalies.</p>
+            <h3>Research & Academia</h3>
+            <p>
+              Analyze misinformation trends, linguistic bias, and content reliability.
+            </p>
           </div>
 
           <div className="usecase">
-            <h3>Public Awareness Tools</h3>
-            <p>Help readers evaluate content they encounter on social platforms.</p>
+            <h3>Corporate Risk Intelligence</h3>
+            <p>
+              Identify misleading narratives that may impact brand reputation or markets.
+            </p>
           </div>
 
           <div className="usecase">
-            <h3>Cybersecurity & Threat Intel</h3>
-            <p>Identify coordinated misinformation campaigns and risky narratives.</p>
+            <h3>Public Awareness Platforms</h3>
+            <p>
+              Enable users to verify content encountered on digital and social channels.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ========================= TECH STACK & METRICS ========================= */}
+      {/* ================= TECH STACK ================= */}
       <section className="abt-card abt-tech fade-in">
-        <h2 className="abt-section-title">Technical Stack & Performance</h2>
+        <h2 className="abt-section-title">Technology Stack</h2>
 
         <div className="tech-grid">
           <div className="tech">
             <strong>Frontend</strong>
-            <div>React, Tailwind-ready UI, Optimized rendering</div>
+            <div>React.js, Modular Component Architecture</div>
           </div>
 
           <div className="tech">
-            <strong>Backend (Optional)</strong>
-            <div>Flask API, HuggingFace Transformers, Fast inference</div>
+            <strong>Backend (Pluggable)</strong>
+            <div>Flask / REST APIs, ML Model Services</div>
           </div>
 
           <div className="tech">
-            <strong>ML Logic</strong>
-            <div>Heuristic + NLP Models (extendable to BERT/DistilBERT)</div>
+            <strong>AI & NLP</strong>
+            <div>Heuristic Analysis, NLP Pipelines, Transformer-ready</div>
           </div>
 
           <div className="tech">
-            <strong>Data Handling</strong>
-            <div>Client-side storage for prototype (secure & private)</div>
+            <strong>Security & Privacy</strong>
+            <div>Client-side storage (prototype), secure API-ready design</div>
           </div>
-        </div>
-
-        <div className="performance">
-          <p>
-            <strong>Prototype results:</strong> Avg. processing latency &lt; 1s for text, 
-            with explainable reasoning for each detection.
-          </p>
         </div>
       </section>
 
-      {/* ========================= TESTIMONIALS ========================= */}
-      <section className="abt-card abt-testimonials fade-in">
-        <h2 className="abt-section-title">Early Feedback</h2>
-
-        <div className="testimonial-grid">
-          <blockquote className="testimonial">
-            "A powerful prototype — the explainability feature is extremely useful for editorial reviewing."
-            <footer>— Senior Editor, Digital Media Group</footer>
-          </blockquote>
-
-          <blockquote className="testimonial">
-            "Helps students and researchers understand misinformation patterns with clarity."
-            <footer>— Assistant Professor, Data Science Dept.</footer>
-          </blockquote>
-        </div>
-      </section>
-
-      {/* ========================= ROADMAP ========================= */}
+      {/* ================= ROADMAP ================= */}
       <section className="abt-card abt-roadmap fade-in">
-        <h2 className="abt-section-title">Roadmap & Next Steps</h2>
+        <h2 className="abt-section-title">Product Roadmap</h2>
 
         <ol className="roadmap-list">
-          <li><strong>Q1:</strong> Integrate transformer-based credibility scoring.</li>
-          <li><strong>Q2:</strong> Add source reliability graphing & misinformation taxonomy.</li>
-          <li><strong>Q3:</strong> Multi-language misinformation detection models.</li>
-          <li><strong>Ongoing:</strong> UI upgrades, accuracy tuning, dataset expansion.</li>
+          <li><strong>Phase 1:</strong> Transformer-based credibility scoring models.</li>
+          <li><strong>Phase 2:</strong> Source reputation analytics and dashboards.</li>
+          <li><strong>Phase 3:</strong> Multi-language misinformation detection.</li>
+          <li><strong>Ongoing:</strong> Performance tuning, UI enhancements, dataset expansion.</li>
         </ol>
       </section>
 
-      {/* ========================= CALL TO ACTION ========================= */}
-      <section className="abt-card abt-cta fade-in">
-        <h2 className="abt-section-title">Want to Try or Integrate This?</h2>
-
-        <p className="abt-description">
-          If you are a media team, researcher, or educator and would like to explore this project
-          for collaboration, research, or pilot deployment — feel free to reach out.
-        </p>
-
-        <div className="cta-row">
-          <a
-            className="cta-btn primary"
-            href="mailto:gsiva@example.com?subject=Fake%20News%20Detector%20Platform%20Demo"
-          >
-            Request a Demo
-          </a>
-
-          <a className="cta-btn ghost" href="/contact">
-            Contact Developer
-          </a>
-        </div>
-      </section>
-
-      {/* ========================= FOOTER PROFILE ========================= */}
+      {/* ================= LEADERSHIP ================= */}
       <section className="abt-card abt-personal-card fade-in">
-        <h2 className="abt-section-title">Project Lead</h2>
+        <h2 className="abt-section-title">Project Leadership</h2>
 
         <p className="abt-description">
-          <strong>G S S S Bhagavan</strong> — B.Tech (AI & Data Science). Passionate about building
-          AI-based misinformation detection tools, ethical AI systems, and next-gen media intelligence
-          solutions. Open to collaborations, research opportunities, and internships.
+          <strong>Project Lead:</strong> G S S S Bhagavan  
+          <br />
+          AI & Data Science Engineer with a strong focus on natural language processing,
+          explainable AI systems, and responsible AI development.
         </p>
 
         <div className="abt-profile highlight-box">
-          <div><strong>Specialization:</strong> Artificial Intelligence & Data Science</div>
-          <div><strong>Institution:</strong> Ramachandra College of Engineering</div>
-          <div><strong>Focus Area:</strong> NLP, Misinformation Detection, Explainable AI</div>
-          <div style={{ marginTop: 10 }}>
-            <strong>Email:</strong> gsiva@example.com
-          </div>
+          <div><strong>Expertise:</strong> AI, NLP, Data Science</div>
+          <div><strong>Focus:</strong> Misinformation Detection & Media Intelligence</div>
+          <div><strong>Availability:</strong> Open to research, internships, and enterprise collaboration</div>
         </div>
       </section>
+
+      {/* ================= CTA ================= */}
+      <section className="abt-card abt-cta fade-in">
+        <h2 className="abt-section-title">Interested in Collaboration?</h2>
+
+        <p className="abt-description">
+          Organizations, research teams, and educators interested in evaluating or extending
+          this platform are welcome to connect for pilot deployments or technical discussions.
+        </p>
+
+        <div className="cta-row">
+          <a className="cta-btn primary" href="mailto:contact@newsguardai.com">
+            Request Enterprise Demo
+          </a>
+        </div>
+      </section>
+
     </main>
   );
 }

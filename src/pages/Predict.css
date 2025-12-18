@@ -1,226 +1,300 @@
-/* ============================= PREDICT.CSS – FINAL 2026 AI TRUTH ENGINE MASTERPIECE ============================= */
-/* The most beautiful, intelligent, and trustworthy fake news detector ever built — OpenAI-level UI */
+/* ======================================================
+   STRIPE-STYLE PREDICT PAGE — NEWSGUARD AI
+====================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap');
+/* ---------- ROOT ---------- */
+
+:root {
+  --primary: #635bff;
+  --primary-dark: #4b44e6;
+  --bg-page: #f6f9fc;
+  --bg-card: #ffffff;
+  --border: #e6ebf1;
+  --text-main: #0a2540;
+  --text-muted: #425466;
+  --danger: #dc2626;
+  --success: #16a34a;
+}
+
+/* ---------- DARK MODE ---------- */
+
+.dark {
+  --bg-page: #0b1220;
+  --bg-card: #111827;
+  --border: #1f2937;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+}
+
+/* ---------- BASE ---------- */
 
 .predict-main {
-  --primary: #6366f1;
-  --primary-light: #818cf8;
-  --success: #10b981;
-  --danger: #dc2626;
-  --warning: #f59e0b;
-  --accent-glow: rgba(99, 102, 241, 0.4);
-
-  --bg: #f8f9ff;
-  --card-bg: rgba(255, 255, 255, 0.96);
-  --input-bg: rgba(255, 255, 255, 0.98);
-  --text: #0f172a;
-  --text-muted: #64748b;
-  --border: rgba(226, 232, 240, 0.8);
-  --shadow: 0 30px 100px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 50px 140px rgba(0, 0, 0, 0.18);
-  --radius: 40px;
-  --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-
+  background: var(--bg-page);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0f4ff 0%, #e8f0ff 45%, #dde5ff 100%);
-  font-family: 'Inter', sans-serif;
-  color: var(--text);
-  line-height: 1.8;
-  padding: 10rem 5% 10rem;
 }
 
-/* DARK MODE — Deep AI laboratory */
-.dark .predict-main {
-  --bg: #0a0a15;
-  --card-bg: rgba(15, 15, 35, 0.98);
-  --input-bg: rgba(25, 25, 55, 0.98);
-  --text: #f0f4ff;
-  --text-muted: #a0a8d0;
-  --border: rgba(100, 100, 200, 0.25);
-  background: #0a0a15;
+.predict-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 24px 80px;
 }
 
-/* HEADER — Futuristic title */
-header {
-  text-align: center;
-  margin-bottom: 5rem;
-  padding: 3rem;
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-  position: relative;
-  overflow: hidden;
-}
-header::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 12px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899, #f87171);
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-header h1 {
-  font-size: 4rem;
-  font-weight: 800;
-  margin: 0;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
-  -webkit-background-clip: text;
-  color: transparent;
-  line-height: 1.1;
+/* ======================================================
+   HEADER
+====================================================== */
+
+.predict-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
 }
 
-/* UPLOADER — Glassmorphic AI core */
-.uploader {
-  background: var(--card-bg);
-  backdrop-filter: blur(40px);
-  border-radius: var(--radius);
-  padding: 4rem;
-  border: 2px dashed rgba(99,102,241,0.3);
-  box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 3rem;
-}
-.uploader::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 12px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-
-/* Textarea — Neural interface */
-textarea {
-  width: 100%;
-  padding: 2rem;
-  border-radius: 28px;
-  border: 1px solid var(--border);
-  background: var(--input-bg);
-  font-size: 1.2rem;
-  font-family: 'JetBrains Mono', monospace;
-  resize: none;
-  min-height: 200px;
-  transition: var(--transition);
-  box-shadow: inset 0 10px 30px rgba(0,0,0,0.05);
-}
-textarea:focus {
-  outline: none;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 10px rgba(99,102,241,0.25);
-}
-
-/* Action buttons — AI command center */
-.uploader button {
-  padding: 1.3rem 3rem;
-  border-radius: 60px;
+.predict-header h1 {
+  font-size: 24px;
   font-weight: 700;
-  font-size: 1.2rem;
-  transition: var(--transition);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-}
-.uploader button:nth-child(1) { background: linear-gradient(135deg, #f59e0b, #f97316); }
-.uploader button:nth-child(2) { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.uploader button:nth-child(3),
-.uploader button:nth-child(4) {
-  background: transparent;
-  color: var(--text);
-  border: 2px solid var(--border);
+  letter-spacing: -0.02em;
 }
 
-/* RESULT CARD — Dramatic verdict */
-.result-card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 4rem;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border);
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 4rem;
-}
-.result-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 16px;
-  background: linear-gradient(90deg, var(--danger), var(--success));
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-.result-card.bg-red-50 {
-  background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(248,113,113,0.18));
-}
-.result-card.bg-green-50 {
-  background: linear-gradient(135deg, rgba(34,197,94,0.12), rgba(16,185,129,0.18));
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* Verdict text */
-.result-card h2 {
-  font-size: 4rem;
-  font-weight: 800;
-  margin: 0;
-  line-height: 1;
-}
-
-/* EXPLAINABILITY GRID */
-.grid-cols-1.md\\:grid-cols-3 > div {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 28px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-}
-
-/* CHARTS — Neural visualization */
-.charts > div {
-  background: var(--card-bg);
-  padding: 3rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-}
-
-/* WORD CLOUD — AI brain */
-.mb-4.p-3.rounded.bg-white {
-  background: var(--card-bg);
-  padding: 4rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-}
-
-/* HISTORY — Truth archive */
-.history {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 3.5rem;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-}
-
-/* QUEUE — Processing pipeline */
-ul.space-y-1 li {
-  background: var(--card-bg);
-  border-radius: 20px;
-  padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border);
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 6rem 0 4rem;
+.header-controls label {
+  font-size: 13px;
   color: var(--text-muted);
-  font-size: 1.1rem;
 }
 
-/* RESPONSIVE */
+.header-controls select,
+.header-controls button {
+  padding: 6px 10px;
+  font-size: 13px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-card);
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+/* ======================================================
+   INPUT SECTION
+====================================================== */
+
+.input-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.input-section textarea {
+  width: 100%;
+  height: 140px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  resize: vertical;
+  background: var(--bg-page);
+  color: var(--text-main);
+}
+
+.input-section textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.input-meta {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.input-meta select {
+  margin-left: 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* ======================================================
+   ACTIONS
+====================================================== */
+
+.actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.actions input[type="file"] {
+  font-size: 12px;
+}
+
+.actions button {
+  padding: 8px 14px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+}
+
+.actions button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ======================================================
+   ERROR
+====================================================== */
+
+.error {
+  margin-top: 12px;
+  color: var(--danger);
+  font-size: 13px;
+}
+
+/* ======================================================
+   RESULT
+====================================================== */
+
+.result-section {
+  margin-top: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.result-section h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.export-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.export-actions button {
+  font-size: 12px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-page);
+}
+
+/* ======================================================
+   EXPLAINABILITY
+====================================================== */
+
+.explain-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.explain-grid h4 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.explain-grid ul {
+  font-size: 13px;
+  padding-left: 16px;
+  color: var(--text-muted);
+}
+
+/* ======================================================
+   CHARTS
+====================================================== */
+
+.charts {
+  margin-top: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* ======================================================
+   HISTORY
+====================================================== */
+
+.history {
+  margin-top: 28px;
+}
+
+.history h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.history-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.history-item strong {
+  color: var(--primary);
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+.predict-footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
 @media (max-width: 768px) {
-  .predict-main { padding: 9rem 1.5rem 6rem; }
-  header h1 { font-size: 2.8rem; }
-  .uploader { padding: 2.5rem; }
-  .result-card { padding: 3rem; }
+  .predict-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .input-meta {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .export-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
 }

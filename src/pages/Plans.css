@@ -1,258 +1,319 @@
-/* ============================= PLANS.CSS – FINAL 2026 SAAS MASTERPIECE ============================= */
-/* The most beautiful, trustworthy, and highest-converting pricing page in the world */
+/* ======================================================
+   STRIPE-STYLE PRICING UI — NEWSGUARD AI
+====================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* ---------- ROOT ---------- */
+
+:root {
+  --primary: #635bff;      /* Stripe blue */
+  --primary-dark: #4b44e6;
+  --bg-page: #f6f9fc;
+  --bg-card: #ffffff;
+  --border: #e6ebf1;
+  --text-main: #0a2540;
+  --text-muted: #425466;
+  --success: #16a34a;
+}
+
+/* ---------- BASE ---------- */
 
 .plans-main {
-  --primary: #6366f1;
-  --primary-light: #818cf8;
-  --success: #10b981;
-  --danger: #dc2626;
-  --accent-glow: rgba(99, 102, 241, 0.35);
-
-  --bg: #f8f9ff;
-  --card-bg: rgba(255, 255, 255, 0.96);
-  --input-bg: rgba(255, 255, 255, 0.98);
-  --text: #0f172a;
-  --text-muted: #64748b;
-  --border: rgba(226, 232, 240, 0.8);
-  --shadow: 0 25px 80px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 40px 120px rgba(0, 0, 0, 0.15);
-  --radius: 38px;
-  --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f0f4ff 0%, #e8f0ff 50%, #dde5ff 100%);
-  font-family: 'Inter', sans-serif;
-  color: var(--text);
-  line-height: 1.8;
-  padding: 10rem 5% 8rem;
+  background: var(--bg-page);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
-/* DARK MODE — Deep cosmic luxury */
-.dark .plans-main {
-  --bg: #0a0a15;
-  --card-bg: rgba(15, 15, 35, 0.97);
-  --input-bg: rgba(25, 25, 55, 0.98);
-  --text: #f0f4ff;
-  --text-muted: #a0a8d0;
-  --border: rgba(100, 100, 200, 0.2);
-  background: #0a0a15;
+.plans-main input,
+.plans-main select,
+.plans-main textarea {
+  font-family: inherit;
 }
 
-/* HERO HEADER */
+/* ======================================================
+   HERO
+====================================================== */
+
 .plans-hero {
-  text-align: center;
-  margin-bottom: 6rem;
-}
-.plans-hero h1 {
-  font-size: 4.2rem;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899, #f87171);
-  -webkit-background-clip: text;
-  color: transparent;
-  line-height: 1.1;
-}
-.plans-hero p {
-  font-size: 1.5rem;
-  color: var(--text-muted);
-  max-width: 800px;
-  margin: 0 auto 4rem;
+  max-width: 1100px;
+  margin: 0 auto 40px;
 }
 
-/* BILLING TOGGLE — Premium pill */
+.plans-hero h1 {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.plans-hero p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+/* ======================================================
+   CONTROLS
+====================================================== */
+
 .pricing-toggle {
   display: inline-flex;
-  background: var(--card-bg);
-  border-radius: 60px;
-  padding: 0.6rem;
-  box-shadow: inset 0 6px 20px rgba(0,0,0,0.12);
   border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
 }
+
 .pricing-toggle button {
-  padding: 1.1rem 3rem;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 1.15rem;
+  padding: 8px 16px;
+  border: none;
   background: transparent;
+  font-weight: 500;
+  cursor: pointer;
   color: var(--text-muted);
-  transition: var(--transition);
 }
+
 .pricing-toggle button.active {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: white;
-  box-shadow: 0 12px 40px var(--accent-glow);
+  background: var(--bg-card);
+  color: var(--text-main);
+  box-shadow: inset 0 -2px 0 var(--primary);
 }
 
-/* PLAN CARDS — Glassmorphic luxury */
+.plans-main input,
+.plans-main select {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ======================================================
+   PLAN CARDS
+====================================================== */
+
 .plans-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 3.5rem;
-  margin-bottom: 6rem;
+  max-width: 1100px;
+  margin: auto;
 }
+
 .plan-card {
-  background: var(--card-bg);
-  backdrop-filter: blur(32px);
-  border-radius: var(--radius);
-  padding: 3.5rem;
+  background: var(--bg-card);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-}
-.plan-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 10px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-.plan-card:hover {
-  transform: translateY(-20px);
-  box-shadow: var(--shadow-lg);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/* Featured Pro Card */
 .plan-card.featured {
-  border: 3px solid #6366f1;
-  box-shadow: 
-    0 50px 140px rgba(99, 102, 241, 0.4),
-    0 25px 80px rgba(0, 0, 0, 0.15);
-  transform: scale(1.06);
-}
-.plan-card.featured::before {
-  background: linear-gradient(90deg, #10b981, #34d399, #22d3ee, #06b6d4);
+  border: 2px solid var(--primary);
 }
 
-/* Price */
-.plan-card .text-3xl {
-  font-size: 4rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  -webkit-background-clip: text;
-  color: transparent;
-  margin: 1rem 0;
+.plan-card h3 {
+  font-size: 20px;
+  font-weight: 600;
 }
 
-/* CTA Buttons */
-.plan-btn {
-  width: 100%;
-  padding: 1.4rem;
-  border-radius: 60px;
+.plan-card .badge {
+  font-size: 13px;
+  color: var(--primary);
+  margin-top: 4px;
+}
+
+/* ---------- PRICE ---------- */
+
+.price {
+  margin: 20px 0;
+  font-size: 34px;
   font-weight: 700;
-  font-size: 1.25rem;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: white;
-  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-  transition: var(--transition);
-}
-.plan-btn:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 60px rgba(99, 102, 241, 0.5);
+  letter-spacing: -0.02em;
 }
 
-/* COMPARISON TABLE */
-.plans-comparison table {
-  width: 100%;
-  border-collapse: collapse;
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
+.price .cycle {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-left: 6px;
 }
-.plans-comparison th {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: white;
-  padding: 1.8rem;
+
+/* ---------- LIMITS ---------- */
+
+.limits {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+/* ---------- FEATURES ---------- */
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.plan-card ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.plan-card ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--success);
   font-weight: 700;
-  font-size: 1.1rem;
-}
-.plans-comparison td {
-  padding: 1.5rem;
-  border-bottom: 1px solid var(--border);
-  text-align: center;
-}
-.plans-comparison tr:hover {
-  background: rgba(99, 102, 241, 0.08);
 }
 
-/* ENTERPRISE FEATURES */
-.advanced-section {
-  background: var(--card-bg);
-  padding: 4rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  font-size: 1.05rem;
+/* ---------- CTA ---------- */
+
+.plan-card button.primary {
+  margin-top: 16px;
+  padding: 10px;
+  background: var(--primary);
+  border: none;
+  color: #ffffff;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-/* BILLING CTA */
+.plan-card button.primary:hover {
+  background: var(--primary-dark);
+}
+
+.security-note {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ======================================================
+   BILLING CTA
+====================================================== */
+
 .billing-cta {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
-  border-radius: var(--radius);
-  padding: 5rem;
+  max-width: 1100px;
+  margin: 70px auto 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px;
   text-align: center;
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  box-shadow: 0 30px 100px rgba(99, 102, 241, 0.2);
-}
-.billing-cta button {
-  padding: 1.4rem 3.5rem;
-  font-size: 1.3rem;
-  border-radius: 60px;
 }
 
-/* CONTACT MODAL */
-.fixed.inset-0 {
+.billing-cta h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.billing-cta p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.cta-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.cta-actions button {
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: 1px solid var(--primary);
+  background: transparent;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.cta-actions button:hover {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+/* ======================================================
+   MODAL
+====================================================== */
+
+.modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(20px);
+  background: rgba(10, 37, 64, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
 }
-.max-w-2xl {
-  max-width: 52rem;
-}
-.bg-white {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 4rem;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border);
+
+.modal {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 28px;
+  width: 100%;
+  max-width: 420px;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 6rem 0 4rem;
+.modal h3 {
+  margin-bottom: 6px;
+}
+
+.modal p {
+  font-size: 13px;
   color: var(--text-muted);
-  font-size: 1rem;
-  border-top: 1px solid var(--border);
-}
-footer a {
-  color: #6366f1;
-  text-decoration: underline;
-  font-weight: 600;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1024px) {
+.modal input,
+.modal textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.modal-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-actions button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-actions button[type="submit"] {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.modal-actions button[type="button"] {
+  background: #e5e7eb;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 900px) {
   .plans-cards {
     grid-template-columns: 1fr;
   }
-  .plan-card.featured {
-    transform: none;
-  }
 }
+@media (max-width: 600px) {
+  .plans-hero h1 {
+    font-size: 28px;
+  }
 
-@media (max-width: 640px) {
-  .plans-main { padding: 9rem 1.5rem 5rem; }
-  .plans-hero h1 { font-size: 3rem; }
-  .plan-card { padding: 2.5rem; }
+  .price {
+    font-size: 28px;
+  }
 }
