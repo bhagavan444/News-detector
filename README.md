@@ -115,10 +115,65 @@ Author
 Siva Satya Sai Bhagavan Gopalajosyula
 B.Tech – Artificial Intelligence & Data Science
 GitHub: https://github.com/bhagavan444
-<img width="1919" height="1084" alt="image" src="https://github.com/user-attachments/assets/dd7ad67d-c333-4e73-bc31-a7d1ecd5b15b" />
-<img width="1917" height="1072" alt="image" src="https://github.com/user-attachments/assets/eef530b9-da4b-4af5-a80a-e35792173666" />
-<img width="1919" height="1087" alt="image" src="https://github.com/user-attachments/assets/6c9f5992-bb6f-4868-9c01-0072b6a74935" />
-<img width="1917" height="1080" alt="image" src="https://github.com/user-attachments/assets/7aaf56ae-832b-40de-a549-b3b586591eaa" />
+
+<img width="1919" height="1143" alt="image" src="https://github.com/user-attachments/assets/0ecc5191-2987-4d24-8a14-f037e1b6303d" />
+<img width="1918" height="1140" alt="image" src="https://github.com/user-attachments/assets/29f0143e-86e3-4e97-ad1f-8509f9c40d86" />
+<img width="1916" height="1135" alt="image" src="https://github.com/user-attachments/assets/f1e0a65d-ac98-4166-9c77-992d2446561e" />
+<img width="1916" height="1135" alt="image" src="https://github.com/user-attachments/assets/c35c73dc-01bf-4876-8066-af0a26830367" />
+
+<img width="1918" height="1144" alt="image" src="https://github.com/user-attachments/assets/a9f3b6a7-132e-4c69-b052-700569a79678" />
+
+<img width="1916" height="1142" alt="image" src="https://github.com/user-attachments/assets/b70457d9-e41b-48db-b934-18b3321b0bd5" />
+
+<img width="1919" height="1147" alt="image" src="https://github.com/user-attachments/assets/2048ffe4-71fa-4770-97f9-d04513aa2093" />
+
+<img width="1919" height="1143" alt="image" src="https://github.com/user-attachments/assets/a720198e-50ae-429d-be93-5ea40b08c2b8" />
+
+<img width="1919" height="1138" alt="image" src="https://github.com/user-attachments/assets/582b66b2-c880-46f3-a9d3-cde046e02fa7" />
+
+<img width="1919" height="1146" alt="image" src="https://github.com/user-attachments/assets/c64c411e-5bb2-4162-8997-e126aabb427c" />
+
+<img width="1919" height="1002" alt="image" src="https://github.com/user-attachments/assets/f7cfe369-6061-4032-8a12-4d19f60e9cf4" />
+
+<img width="1919" height="1151" alt="image" src="https://github.com/user-attachments/assets/860cf9e6-1866-4635-a52d-e0e1ad697e8d" />
+
+<img width="1919" height="1146" alt="image" src="https://github.com/user-attachments/assets/ac2d4646-cff0-47ef-81b4-9365531664df" />
+
+<img width="1919" height="1151" alt="image" src="https://github.com/user-attachments/assets/71d65078-c306-4c1f-8747-b85d1af99c4d" />
+
+<img width="1919" height="1162" alt="image" src="https://github.com/user-attachments/assets/24146a26-b757-4ff9-803a-af13855032ea" />
+
+<img width="1917" height="1140" alt="image" src="https://github.com/user-attachments/assets/ab9de47b-026b-45c2-8269-fb9276c46670" />
+
+<img width="1919" height="1140" alt="image" src="https://github.com/user-attachments/assets/2d9f2aaa-91df-4633-b37a-4b7787ba70c2" />
+
+<img width="1919" height="1142" alt="image" src="https://github.com/user-attachments/assets/09f4c58d-5b90-49a7-a970-de002023eb87" />
+
+<img width="1919" height="1162" alt="image" src="https://github.com/user-attachments/assets/16608480-e91c-4950-a377-09098857bce9" />
+
+<img width="1916" height="1149" alt="image" src="https://github.com/user-attachments/assets/4487edb7-36ef-417a-8c9c-c1d16040547b" />
+
+<img width="1919" height="1148" alt="image" src="https://github.com/user-attachments/assets/bb005419-3510-4e3c-ac24-589a0ac58959" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
