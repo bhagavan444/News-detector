@@ -5,11 +5,15 @@ function Contact() {
   return (
     <main className="contact-main">
 
+      {/* ================= ENTERPRISE STATUS ================= */}
+      <section className="contact-status-bar">
+        📡 Support: Active &nbsp;|&nbsp; ⏱ Avg Response: 24 hrs &nbsp;|&nbsp;
+        🔐 Secure Communication Enabled
+      </section>
+
       {/* ================= CONTACT INTRO ================= */}
       <section className="contact-card">
-        <h1 className="contact-title">
-          Contact & Collaboration
-        </h1>
+        <h1 className="contact-title">Contact & Collaboration</h1>
 
         <p className="contact-intro">
           NewsGuard AI focuses on building intelligent solutions at the intersection of
@@ -22,19 +26,11 @@ function Contact() {
 
         {/* ================= DIRECT CONTACT ================= */}
         <div className="contact-methods">
-          <a
-            className="contact-method"
-            href="tel:+917569205626"
-            aria-label="Call NewsGuard AI support"
-          >
+          <a className="contact-method" href="tel:+917569205626">
             <span className="contact-details">+91 75692 05626</span>
           </a>
 
-          <a
-            className="contact-method"
-            href="mailto:g.sivasatyasaibhagavan@gmail.com"
-            aria-label="Email NewsGuard AI"
-          >
+          <a className="contact-method" href="mailto:g.sivasatyasaibhagavan@gmail.com">
             <span className="contact-details">
               g.sivasatyasaibhagavan@gmail.com
             </span>
@@ -87,53 +83,51 @@ function Contact() {
         </p>
 
         <form className="contact-form">
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="contact-input"
-            required
-          />
-          <input
-            type="email"
-            placeholder="Business Email"
-            className="contact-input"
-            required
-          />
+          <input type="text" placeholder="Full Name" className="contact-input" required />
+          <input type="email" placeholder="Business Email" className="contact-input" required />
+
+          {/* ===== Inquiry Type (Enterprise Feature) ===== */}
+          <select className="contact-input" required>
+            <option value="">Inquiry Type</option>
+            <option>Enterprise Collaboration</option>
+            <option>Research Partnership</option>
+            <option>Technical Support</option>
+            <option>Product Demonstration</option>
+          </select>
+
           <textarea
             placeholder="Message / Requirements"
             rows="4"
             className="contact-textarea"
             required
           />
+
           <button type="submit" className="contact-submit-btn">
             Submit Inquiry
           </button>
         </form>
+
+        <p className="contact-privacy-note">
+          🔒 We respect your privacy. Your information will only be used for communication purposes.
+        </p>
       </section>
 
-      {/* ================= COLLABORATION ================= */}
+      {/* ================= PARTNERSHIP TYPES ================= */}
       <section className="contact-collab-card">
         <h2 className="contact-section-title">Collaboration Areas</h2>
 
-        <p className="contact-collab-text">
-          We collaborate with <strong>media organizations</strong>,
-          <strong> research institutions</strong>,
-          <strong> AI ethics teams</strong>, and
-          <strong> enterprise platforms</strong> focused on
-          strengthening information credibility and trust.
-        </p>
-
         <ul className="collab-list">
+          <li>Enterprise AI Platform Integrations</li>
           <li>AI-Based Fake News & Misinformation Detection</li>
           <li>NLP-Driven Credibility & Trust Scoring</li>
-          <li>Real-Time Media Monitoring Dashboards</li>
+          <li>Real-Time Media Intelligence Dashboards</li>
           <li>AI/ML Model Development & Deployment</li>
-          <li>Full-Stack AI Platform Integrations (MERN / Flask)</li>
+          <li>Academic & Research Collaborations</li>
         </ul>
 
         <p className="contact-collab-bottom">
-          If your organization works with high-impact information systems,
-          we welcome discussions on collaboration and integration.
+          We partner with organizations working on high-impact information systems
+          and ethical AI deployments.
         </p>
       </section>
 
@@ -147,18 +141,13 @@ function Contact() {
         </div>
 
         <div className="faq-item">
-          <strong>Do you support research collaborations?</strong>
-          <p>
-            Yes. We actively collaborate on NLP, misinformation detection,
-            and AI-driven media intelligence initiatives.
-          </p>
+          <strong>Do you support enterprise pilots?</strong>
+          <p>Yes, we support pilot integrations and proof-of-concept deployments.</p>
         </div>
 
         <div className="faq-item">
-          <strong>Can I request a product demonstration?</strong>
-          <p>
-            Yes. Please reach out via email to schedule a platform walkthrough.
-          </p>
+          <strong>Is the platform suitable for research use?</strong>
+          <p>Absolutely. Research and academic collaborations are encouraged.</p>
         </div>
       </section>
 
@@ -168,7 +157,7 @@ function Contact() {
         <p className="contact-hours-text">
           <strong>Monday – Saturday:</strong> 10:00 AM – 6:00 PM IST  
           <br />
-          <strong>Sunday:</strong> Limited availability for priority requests
+          <strong>Sunday:</strong> Priority requests only
         </p>
       </section>
 
@@ -177,15 +166,16 @@ function Contact() {
         <h2 className="contact-section-title">Location</h2>
         <p>
           Based in <strong>Eluru, Andhra Pradesh, India</strong>.  
-          Open to <strong>remote and global collaborations</strong>.
+          <br />
+          Supporting <strong>remote & global collaborations</strong>.
         </p>
       </section>
 
       {/* ================= FOOTER ================= */}
       <footer className="contact-footer-note">
-        © {new Date().getFullYear()} NewsGuard AI.  
+        © {new Date().getFullYear()} NewsGuard AI  
         <br />
-        Building enterprise-grade solutions for trustworthy information systems.
+        Enterprise-grade AI solutions for trustworthy information systems
       </footer>
 
     </main>

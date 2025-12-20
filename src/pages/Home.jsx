@@ -1,5 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 import "./Home.css";
 
 /* ---------------- MOCK LIVE DATA ---------------- */
@@ -18,8 +27,6 @@ const SOURCE_TRUST = {
   "Unknown Blog": "Low",
 };
 
-/* ---------------- MAIN COMPONENT ---------------- */
-
 export default function Home() {
   const navigate = useNavigate();
 
@@ -27,6 +34,36 @@ export default function Home() {
   const [result, setResult] = useState(null);
   const [history, setHistory] = useState([]);
   const [feedback, setFeedback] = useState(null);
+  const [trend, setTrend] = useState([]);
+  const [autoScan, setAutoScan] = useState(false);
+
+  /* -------- REAL-TIME SCORE SIMULATION -------- */
+
+  useEffect(() => {
+    if (!result) return;
+
+    const interval = setInterval(() => {
+      setTrend((prev) => [
+        ...prev.slice(-9),
+        {
+          time: new Date().toLocaleTimeString(),
+          score: result.score + Math.floor(Math.random() * 5 - 2),
+        },
+      ]);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [result]);
+
+  /* -------- AUTO SCAN MODE -------- */
+
+  useEffect(() => {
+    if (autoScan && text.trim().length > 15) {
+      analyze();
+    }
+  }, [text]);
+
+  /* ---------------- ANALYZE ---------------- */
 
   const analyze = () => {
     if (!text.trim()) return;
@@ -37,14 +74,17 @@ export default function Home() {
     const analysis = {
       score,
       confidence: Math.min(95, score + 10),
+      risk: score < 40 ? "HIGH RISK" : score < 65 ? "SUSPICIOUS" : "SAFE",
       breakdown: {
         language: isSensational ? "Sensational" : "Neutral",
         source: "Medium",
         consistency: score > 50 ? "High" : "Low",
+        bias: isSensational ? "Emotionally Manipulative" : "Low Bias",
       },
     };
 
     setResult(analysis);
+    setTrend([]);
 
     setHistory([
       {
@@ -58,35 +98,38 @@ export default function Home() {
   };
 
   const exportReport = () => {
-    alert("Report exported successfully (mock).");
+    alert("Enterprise report exported (mock PDF / JSON).");
   };
 
   return (
-    <div className="home-wrapper">
+    <motion.div className="home-wrapper" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+
+      {/* ================= AI STATUS BAR ================= */}
+      <div className="ai-status-bar">
+        🧠 Model: Active &nbsp;|&nbsp; 📡 Feed: Connected &nbsp;|&nbsp;
+        ⏱ {new Date().toLocaleTimeString()}
+      </div>
 
       {/* ================= HERO ================= */}
       <section className="home-hero">
-        <div className="hero-content">
+        <motion.div className="hero-content" initial={{ y: 40 }} animate={{ y: 0 }}>
           <h1>
-            Enterprise AI Platform for <br />
-            News Credibility Verification
+            Enterprise AI Platform for <br /> News Credibility Verification
           </h1>
-
           <p>
-            A scalable, explainable AI solution designed to help
-            organizations identify misinformation and assess
-            news credibility in real time.
+            Real-time, explainable AI to detect misinformation
+            and reduce organizational risk.
           </p>
 
           <div className="hero-actions">
             <button className="primary-btn" onClick={() => navigate("/predict")}>
-              Launch Detector
+              Launch Verifex
             </button>
             <button className="secondary-btn">Request Demo</button>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="hero-card">
+        <motion.div className="hero-card" whileHover={{ scale: 1.02 }}>
           <h3>Quick Credibility Check</h3>
 
           <textarea
@@ -95,154 +138,126 @@ export default function Home() {
             onChange={(e) => setText(e.target.value)}
           />
 
-          <button className="primary-btn" onClick={analyze}>
-            Analyze
-          </button>
+          <div className="scan-actions">
+            <button className="primary-btn" onClick={analyze}>Scan</button>
+            <button
+              className="secondary-btn"
+              onClick={() => setAutoScan(!autoScan)}
+            >
+              Auto Scan: {autoScan ? "ON" : "OFF"}
+            </button>
+          </div>
 
           {result && (
             <>
-              <div className={`result ${result.score < 40 ? "low" : "high"}`}>
-                Credibility Score: {result.score}%
+              <div
+                className={`result pulse ${result.score < 40 ? "low" : "high"}`}
+              >
+                {result.score}% — {result.risk}
               </div>
 
-              <div className="result-details">
-                <p><strong>Model Confidence:</strong> {result.confidence}%</p>
+              <p><strong>Confidence:</strong> {result.confidence}%</p>
 
-                <h4>Explainable AI Breakdown</h4>
-                <ul>
-                  <li>Language Tone: {result.breakdown.language}</li>
-                  <li>Source Reliability: {result.breakdown.source}</li>
-                  <li>Content Consistency: {result.breakdown.consistency}</li>
-                </ul>
+              <ul>
+                <li>Language: {result.breakdown.language}</li>
+                <li>Consistency: {result.breakdown.consistency}</li>
+                <li>Bias: {result.breakdown.bias}</li>
+              </ul>
 
-                <button className="secondary-btn" onClick={exportReport}>
-                  Export Report
-                </button>
+              <button className="secondary-btn" onClick={exportReport}>
+                Export Enterprise Report
+              </button>
 
-                <div className="feedback">
-                  <span>Was this correct?</span>
-                  <button onClick={() => setFeedback("positive")}>👍</button>
-                  <button onClick={() => setFeedback("negative")}>👎</button>
-                  {feedback && <p>Feedback recorded</p>}
-                </div>
+              <div className="feedback">
+                <span>Was this correct?</span>
+                <button onClick={() => setFeedback("positive")}>👍</button>
+                <button onClick={() => setFeedback("negative")}>👎</button>
+                {feedback && <p>Feedback recorded</p>}
               </div>
+
+              <p className="ai-disclaimer">
+                AI-assisted analysis · Human verification recommended
+              </p>
             </>
           )}
-        </div>
-      </section>
+        </motion.div>
 
-      {/* ================= TRUST ================= */}
-      <section className="home-trust">
-        <h2>Trusted by Professionals</h2>
-        <div className="trust-grid">
-          <div>Journalists</div>
-          <div>Research Institutions</div>
-          <div>Enterprises</div>
-          <div>Government Analysts</div>
-        </div>
-      </section>
-
-      {/* ================= LIVE MONITOR ================= */}
-      <section className="home-live">
-        <h2>
-          Live News Risk Monitor
-          <span className="live-indicator"> ● LIVE</span>
-        </h2>
-
-        <div className="live-grid">
-          {LIVE_NEWS.map((n) => (
-            <div className="live-card" key={n.id}>
-              <h4>{n.title}</h4>
-              <span>{n.source}</span>
-
-              <p>
-                Source Trust:
-                <strong> {SOURCE_TRUST[n.source] || "Unknown"}</strong>
-              </p>
-
-              <strong className={n.score < 40 ? "low" : "high"}>
-                {n.score}% Credibility
-              </strong>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ================= FEATURES ================= */}
-      <section className="home-features">
-        <h2>Platform Capabilities</h2>
-        <div className="features-grid">
-          <div className="feature-card">
-            <h4>Explainable AI</h4>
-            <p>Transparent scoring with human-readable explanations.</p>
+        {/* ================= RECENT SCANS ================= */}
+        {history.length > 0 && (
+          <div className="recent-scans">
+            <h4>Recent Scans</h4>
+            {history.slice(0, 3).map((h) => (
+              <div key={h.id} className="scan-item">
+                <strong>{h.score}%</strong>
+                <small>{h.time}</small>
+              </div>
+            ))}
           </div>
-          <div className="feature-card">
-            <h4>Enterprise Ready</h4>
-            <p>Scalable APIs, audit logs, and compliance support.</p>
-          </div>
-          <div className="feature-card">
-            <h4>Real-Time Analysis</h4>
-            <p>Instant credibility scoring for live news streams.</p>
-          </div>
-          <div className="feature-card">
-            <h4>Secure by Design</h4>
-            <p>Privacy-first architecture with secure data handling.</p>
-          </div>
-        </div>
+        )}
       </section>
 
-      {/* ================= CTA ================= */}
-      <section className="home-cta">
-        <h2>Reduce the Risk of Misinformation</h2>
-        <p>Deploy AI-driven news verification across your organization.</p>
-        <button className="primary-btn" onClick={() => navigate("/predict")}>
-          Get Started
-        </button>
-      </section>
+      {/* ================= LIVE TREND ================= */}
+      {trend.length > 0 && (
+        <section className="home-live">
+          <h2>
+            Real-Time Credibility Trend
+            <span className="live-indicator"> ● LIVE</span>
+          </h2>
+
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={trend}>
+              <XAxis dataKey="time" />
+              <YAxis domain={[0, 100]} />
+              <Tooltip />
+              <Line type="monotone" dataKey="score" strokeWidth={3} />
+            </LineChart>
+          </ResponsiveContainer>
+        </section>
+      )}
 
       {/* ================= FOOTER ================= */}
       <footer className="home-footer">
         <div className="footer-grid">
           <div>
-            <h4>NewsGuard AI</h4>
+            <h4>Verifex AI</h4>
             <p>
-              Enterprise-grade AI platform for detecting
-              misinformation and verifying news credibility.
+              Trusted by enterprises worldwide to combat misinformation
+              using transparent, ethical AI systems.
             </p>
           </div>
 
           <div>
-            <h4>Product</h4>
+            <h4>Solutions</h4>
             <ul>
-              <li>Detector</li>
+              <li>News Verification</li>
               <li>Enterprise API</li>
-              <li>Pricing</li>
+              <li>Risk Analytics</li>
             </ul>
           </div>
 
           <div>
-            <h4>Company</h4>
+            <h4>Compliance</h4>
             <ul>
-              <li>About Us</li>
-              <li>Careers</li>
-              <li>Contact</li>
+              <li>GDPR Ready</li>
+              <li>ISO 27001</li>
+              <li>Responsible AI</li>
             </ul>
           </div>
 
           <div>
-            <h4>Legal</h4>
+            <h4>Connect</h4>
             <ul>
-              <li>Privacy Policy</li>
-              <li>Terms</li>
-              <li>Security</li>
+              <li>LinkedIn</li>
+              <li>Twitter</li>
+              <li>GitHub</li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          © {new Date().getFullYear()} NewsGuard AI. All rights reserved.
+          © {new Date().getFullYear()} Verifex AI · Built for Enterprise Trust
         </div>
       </footer>
-    </div>
+    </motion.div>
   );
 }

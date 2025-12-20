@@ -6,70 +6,100 @@ import "./Navbar.css";
 function Navbar({ handleLogout }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
+  const [profileOpen, setProfileOpen] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      setIsAuthenticated(!!user);
+      if (user) {
+        setIsAuthenticated(true);
+        setUserEmail(user.email);
+      } else {
+        setIsAuthenticated(false);
+        setUserEmail("");
+      }
     });
     return () => unsubscribe();
   }, []);
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setProfileOpen(false);
+  };
+
+  const isAdmin = userEmail === "g.sivasatyasaibhagavan@gmail.com";
 
   return (
     <nav className="navbar" role="navigation" aria-label="Primary Navigation">
       {/* ================= LOGO ================= */}
       <div className="navbar-logo">
         <Link to="/" onClick={closeMenu}>
-          News AI
+          VERIFEX
         </Link>
       </div>
 
       {/* ================= LINKS ================= */}
       <div className={`navbar-links ${menuOpen ? "active" : ""}`}>
         <NavLink to="/" onClick={closeMenu}>
-          Home
+          VERIFEX CORE
         </NavLink>
 
         <NavLink to="/about" onClick={closeMenu}>
-          About
+          VERIFEX INSIGHTS
         </NavLink>
 
         <NavLink to="/plans" onClick={closeMenu}>
-          plans
+          VERIFEX TIERS
         </NavLink>
 
         <NavLink to="/contact" onClick={closeMenu}>
-          Contact
+          VERIFEX CONNECT
         </NavLink>
 
-        {/* Auth-only links */}
+        {/* Auth-only link */}
         {isAuthenticated && (
           <NavLink to="/predict" onClick={closeMenu}>
-            News Analyzer
+            VERIFEX SCAN
+          </NavLink>
+        )}
+
+        {/* Admin-only link */}
+        {isAuthenticated && isAdmin && (
+          <NavLink to="/admin" onClick={closeMenu}>
+            ADMIN PANEL
           </NavLink>
         )}
 
         {/* Auth Action */}
         {!isAuthenticated ? (
-          <NavLink
-            to="/login"
-            className="navbar-btn"
-            onClick={closeMenu}
-          >
+          <NavLink to="/login" className="navbar-btn" onClick={closeMenu}>
             Sign In
           </NavLink>
         ) : (
-          <button
-            type="button"
-            className="navbar-btn"
-            onClick={() => {
-              handleLogout();
-              closeMenu();
-            }}
-          >
-            Sign Out
-          </button>
+          <div className="navbar-profile">
+            <button
+              className="profile-icon"
+              onClick={() => setProfileOpen((p) => !p)}
+              aria-label="User profile"
+            >
+              👤
+            </button>
+
+            {profileOpen && (
+              <div className="profile-dropdown">
+                <p className="profile-email">{userEmail}</p>
+                <button
+                  className="profile-logout"
+                  onClick={() => {
+                    handleLogout();
+                    closeMenu();
+                  }}
+                >
+                  Log Out
+                </button>
+              </div>
+            )}
+          </div>
         )}
       </div>
 

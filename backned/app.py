@@ -12,7 +12,7 @@ app = Flask(__name__)
 CORS(app)
 
 # ===== Gemini API Config =====
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyA3uC2IDU_Rb8VoJ-k2lGILQROc7j0SgNU")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "your_gemini_api_key_here")
 GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
 
 def ask_gemini(prompt: str):

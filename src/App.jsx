@@ -8,7 +8,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Plans from "./pages/Plans";
-import Predict from "./pages/Predict"; // Import Predict page
+import Predict from "./pages/Predict";
+import Admin from "./pages/Admin"; // Added Admin page import
 
 import { auth } from "./firebase"; // Firebase auth
 
@@ -25,7 +26,7 @@ class ErrorBoundary extends Component {
       return (
         <div>
           <h2>Something went wrong.</h2>
-          <p>Error: {this.state.error.message}</p>
+          <p>Error: {this.state.error?.message}</p>
           <button onClick={() => this.setState({ hasError: false, error: null })}>
             Try again
           </button>
@@ -89,6 +90,11 @@ function App() {
           <Route
             path="/predict"
             element={isLoggedIn ? <Predict /> : <Navigate to="/login" />}
+          />
+          {/* New Admin Route - Protected */}
+          <Route
+            path="/admin"
+            element={isLoggedIn ? <Admin /> : <Navigate to="/login" />}
           />
         </Routes>
       </ErrorBoundary>

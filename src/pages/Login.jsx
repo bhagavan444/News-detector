@@ -124,9 +124,9 @@ const Login = ({ handleLogin }) => {
     <div className="login-container">
       {loading && <div className="loading-overlay">Loading...</div>}
       <div className="login-card">
-        <h1 className="login-title"> News Detector Access</h1>
+        <h1 className="login-title"> Verifex Access</h1>
         <p className="login-subtitle">
-          Sign in or sign up to unlock personalized heart health predictions
+          Sign in or sign up to unlock real time News  predictions
         </p>
 
         <div className="mode-toggle">
