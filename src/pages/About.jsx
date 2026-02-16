@@ -1,236 +1,491 @@
-import React from "react";
-import "./About.css";
+import React, { useState, useEffect, useRef } from 'react';
 
 function About() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [cursorVariant, setCursorVariant] = useState('default');
+  const cursorRef = useRef(null);
+  const cursorDotRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    if (cursorRef.current) {
+      cursorRef.current.style.transform = `translate(${mousePosition.x}px, ${mousePosition.y}px)`;
+    }
+    if (cursorDotRef.current) {
+      cursorDotRef.current.style.transform = `translate(${mousePosition.x}px, ${mousePosition.y}px)`;
+    }
+  }, [mousePosition]);
+
+  const handleMouseEnter = () => setCursorVariant('hover');
+  const handleMouseLeave = () => setCursorVariant('default');
+
+  // Styles
+  const styles = {
+    container: {
+      width: '100%',
+      minHeight: '100vh',
+      backgroundColor: '#ffffff',
+      color: '#1a1a1a',
+      fontFamily: 'cursive',
+      cursor: 'none',
+      overflow: 'hidden',
+    },
+    cursor: {
+      width: cursorVariant === 'hover' ? '60px' : '40px',
+      height: cursorVariant === 'hover' ? '60px' : '40px',
+      border: '2px solid rgba(37, 99, 235, 0.6)',
+      borderRadius: '50%',
+      position: 'fixed',
+      top: '-20px',
+      left: '-20px',
+      pointerEvents: 'none',
+      zIndex: 9999,
+      transition: 'width 0.3s ease, height 0.3s ease, border-color 0.3s ease',
+    },
+    cursorDot: {
+      width: '6px',
+      height: '6px',
+      backgroundColor: '#2563eb',
+      borderRadius: '50%',
+      position: 'fixed',
+      top: '-3px',
+      left: '-3px',
+      pointerEvents: 'none',
+      zIndex: 10000,
+      transition: 'transform 0.1s ease',
+    },
+    main: {
+      paddingTop: '0',
+    },
+    section: {
+      maxWidth: '1280px',
+      margin: '0 auto',
+      padding: '120px 48px',
+    },
+    hero: {
+      minHeight: '90vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+      padding: '160px 48px',
+    },
+    heroTitle: {
+      fontSize: '72px',
+      fontWeight: '600',
+      lineHeight: '1.1',
+      marginBottom: '32px',
+      letterSpacing: '-2px',
+      background: 'linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%)',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      backgroundClip: 'text',
+    },
+    heroSubtitle: {
+      fontSize: '24px',
+      lineHeight: '1.6',
+      color: '#4a4a4a',
+      maxWidth: '800px',
+      margin: '0 auto 48px',
+      fontWeight: '300',
+    },
+    sectionTitle: {
+      fontSize: '48px',
+      fontWeight: '600',
+      marginBottom: '48px',
+      letterSpacing: '-1px',
+      lineHeight: '1.2',
+    },
+    problemSection: {
+      backgroundColor: 'rgba(240, 240, 240, 0.5)',
+      borderTop: '1px solid rgba(37, 99, 235, 0.2)',
+      borderBottom: '1px solid rgba(37, 99, 235, 0.2)',
+    },
+    statsGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+      gap: '48px',
+      marginTop: '64px',
+    },
+    statCard: {
+      textAlign: 'left',
+    },
+    statValue: {
+      fontSize: '56px',
+      fontWeight: '700',
+      color: '#2563eb',
+      marginBottom: '16px',
+      letterSpacing: '-1px',
+    },
+    statLabel: {
+      fontSize: '18px',
+      color: '#4a4a4a',
+      lineHeight: '1.6',
+    },
+    pillarsGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+      gap: '40px',
+      marginTop: '64px',
+    },
+    pillarCard: {
+      padding: '40px',
+      backgroundColor: 'rgba(250, 250, 250, 0.8)',
+      border: '1px solid rgba(0, 0, 0, 0.1)',
+      borderRadius: '8px',
+      transition: 'all 0.4s ease',
+    },
+    pillarIcon: {
+      width: '56px',
+      height: '56px',
+      borderRadius: '12px',
+      backgroundColor: 'rgba(37, 99, 235, 0.1)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: '24px',
+      fontSize: '28px',
+    },
+    pillarTitle: {
+      fontSize: '24px',
+      fontWeight: '600',
+      marginBottom: '16px',
+      color: '#1a1a1a',
+    },
+    pillarDescription: {
+      fontSize: '16px',
+      lineHeight: '1.7',
+      color: '#4a4a4a',
+    },
+    architectureSection: {
+      backgroundColor: 'rgba(248, 248, 248, 0.9)',
+    },
+    layerStack: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '24px',
+      marginTop: '64px',
+    },
+    layer: {
+      padding: '32px 40px',
+      backgroundColor: 'rgba(255, 255, 255, 0.8)',
+      border: '1px solid rgba(37, 99, 235, 0.2)',
+      borderLeft: '4px solid #2563eb',
+      borderRadius: '4px',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      transition: 'all 0.3s ease',
+    },
+    layerTitle: {
+      fontSize: '22px',
+      fontWeight: '600',
+      color: '#1a1a1a',
+    },
+    layerDescription: {
+      fontSize: '16px',
+      color: '#4a4a4a',
+      marginTop: '8px',
+    },
+    segmentGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+      gap: '32px',
+      marginTop: '64px',
+    },
+    segmentCard: {
+      padding: '32px',
+      backgroundColor: 'rgba(250, 250, 250, 0.6)',
+      border: '1px solid rgba(0, 0, 0, 0.1)',
+      borderRadius: '4px',
+      transition: 'all 0.3s ease',
+    },
+    segmentTitle: {
+      fontSize: '20px',
+      fontWeight: '600',
+      marginBottom: '12px',
+      color: '#1a1a1a',
+    },
+    segmentDescription: {
+      fontSize: '15px',
+      lineHeight: '1.6',
+      color: '#4a4a4a',
+    },
+    principlesList: {
+      marginTop: '64px',
+      maxWidth: '900px',
+    },
+    principle: {
+      padding: '32px 0',
+      borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+    },
+    principleTitle: {
+      fontSize: '24px',
+      fontWeight: '600',
+      marginBottom: '12px',
+      color: '#2563eb',
+    },
+    principleText: {
+      fontSize: '18px',
+      lineHeight: '1.7',
+      color: '#4a4a4a',
+    },
+    visionSection: {
+      textAlign: 'center',
+      padding: '160px 48px',
+      backgroundColor: 'rgba(245, 248, 255, 0.5)',
+      borderTop: '1px solid rgba(37, 99, 235, 0.2)',
+      borderBottom: '1px solid rgba(37, 99, 235, 0.2)',
+    },
+    visionStatement: {
+      fontSize: '56px',
+      fontWeight: '600',
+      lineHeight: '1.3',
+      maxWidth: '1000px',
+      margin: '0 auto 32px',
+      letterSpacing: '-1px',
+      color: '#1a1a1a',
+    },
+    visionText: {
+      fontSize: '20px',
+      lineHeight: '1.8',
+      color: '#4a4a4a',
+      maxWidth: '800px',
+      margin: '0 auto',
+    },
+    ctaSection: {
+      textAlign: 'center',
+      padding: '120px 48px',
+      backgroundColor: 'rgba(248, 248, 248, 0.9)',
+    },
+    ctaTitle: {
+      fontSize: '48px',
+      fontWeight: '600',
+      marginBottom: '24px',
+      letterSpacing: '-1px',
+      color: '#1a1a1a',
+    },
+    ctaText: {
+      fontSize: '20px',
+      color: '#4a4a4a',
+      marginBottom: '48px',
+      maxWidth: '600px',
+      margin: '0 auto 48px',
+    },
+    ctaButton: {
+      display: 'inline-block',
+      padding: '20px 48px',
+      fontSize: '18px',
+      fontWeight: '600',
+      color: '#ffffff',
+      backgroundColor: '#2563eb',
+      border: 'none',
+      borderRadius: '6px',
+      textDecoration: 'none',
+      transition: 'all 0.3s ease',
+      cursor: 'none',
+    },
+  };
+
+  const pillars = [
+    {
+      icon: '⚡',
+      title: 'Real-Time Intelligence',
+      description: 'Continuous monitoring and analysis of information flows across digital ecosystems.'
+    },
+    {
+      icon: '🧬',
+      title: 'Explainable AI',
+      description: 'Transparent decision-making processes with audit-ready reasoning at every layer.'
+    },
+    {
+      icon: '📊',
+      title: 'Risk Modeling',
+      description: 'Probabilistic assessment frameworks designed for enterprise risk management.'
+    },
+    {
+      icon: '🛡️',
+      title: 'Responsible Deployment',
+      description: 'Human-in-the-loop systems built with accountability and oversight as core principles.'
+    }
+  ];
+
+  const layers = [
+    { title: 'Data Layer', description: 'Multi-source ingestion & normalization' },
+    { title: 'Intelligence Engine', description: 'NLP, pattern recognition & signal detection' },
+    { title: 'Explainability Layer', description: 'Human-readable reasoning & audit trails' },
+    { title: 'Enterprise API', description: 'Scalable integration & access control' }
+  ];
+
+  const segments = [
+    { title: 'Governments', description: 'Policy intelligence and public information integrity.' },
+    { title: 'Media Organizations', description: 'Editorial verification and source validation.' },
+    { title: 'Research Institutions', description: 'Academic analysis and trend identification.' },
+    { title: 'Corporate Risk Teams', description: 'Reputation monitoring and narrative tracking.' },
+    { title: 'Digital Platforms', description: 'Content moderation and trust & safety operations.' }
+  ];
+
+  const principles = [
+    { title: 'Transparency', text: 'We prioritize transparency over opacity in every algorithmic decision.' },
+    { title: 'Assistance', text: 'We design systems that assist human judgment, not replace it.' },
+    { title: 'Accountability', text: 'We measure bias continuously and evolve responsibly with oversight.' },
+    { title: 'Privacy', text: 'We maintain data-minimal architectures that respect user privacy by design.' }
+  ];
+
   return (
-    <main className="abt-main">
+    <div style={styles.container}>
+      {/* Custom Cursor */}
+      <div ref={cursorRef} style={styles.cursor} />
+      <div ref={cursorDotRef} style={styles.cursorDot} />
 
-      {/* ================= PLATFORM STATUS ================= */}
-      <section className="abt-status-bar">
-        🧠 AI Engine: Active &nbsp;|&nbsp; 📡 Monitoring: Live &nbsp;|&nbsp;
-        🔐 Security Mode: Enabled &nbsp;|&nbsp; 🌍 Region: Global (Prototype)
-      </section>
-
-      {/* ================= HERO ================= */}
-      <section className="abt-hero">
-        <div className="abt-hero-inner">
-          <div className="abt-intro">
-            <h1 className="abt-name">Verifiex AI</h1>
-
-            <p className="abt-title">
-              <span className="gradient-text">
-                Enterprise-Grade News Credibility & Misinformation Intelligence Platform
-              </span>
+      <main style={styles.main}>
+        {/* Hero Section */}
+        <section style={styles.hero}>
+          <div>
+            <h1 style={styles.heroTitle}>
+              Building the Infrastructure<br />for Information Integrity
+            </h1>
+            <p style={styles.heroSubtitle}>
+              Verifiex is an enterprise-grade AI platform designed to help institutions
+              navigate the complexity of digital information with clarity, confidence, and responsibility.
             </p>
+          </div>
+        </section>
 
-            <p className="abt-description">
-              NewsGuard AI is a scalable, explainable, and real-time platform designed to help
-              organizations assess the credibility of digital news content and mitigate the
-              risks associated with misinformation.
-            </p>
-
-            <div className="abt-location">
-              <span><strong>Domain:</strong> Artificial Intelligence & Data Science</span><br />
-              <span><strong>Focus Areas:</strong> NLP, Explainable AI, Media Intelligence</span><br />
-              <span><strong>Deployment:</strong> Web-based SaaS (Prototype)</span>
+        {/* Problem Section */}
+        <section style={{...styles.section, ...styles.problemSection}}>
+          <h2 style={styles.sectionTitle}>The Misinformation Crisis</h2>
+          <div style={styles.statsGrid}>
+            <div style={styles.statCard}>
+              <div style={styles.statValue}>$78B</div>
+              <div style={styles.statLabel}>Annual economic impact of misinformation globally</div>
+            </div>
+            <div style={styles.statCard}>
+              <div style={styles.statValue}>67%</div>
+              <div style={styles.statLabel}>of organizations report reputational damage from false narratives</div>
+            </div>
+            <div style={styles.statCard}>
+              <div style={styles.statValue}>94%</div>
+              <div style={styles.statLabel}>of executives cite information integrity as critical infrastructure</div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ================= BUSINESS HIGHLIGHTS ================= */}
-      <section className="abt-card abt-highlights">
-        <div className="highlight-grid">
-          <div className="highlight">
-            <div className="highlight-value">Real-Time</div>
-            <div className="highlight-label">Instant credibility assessment</div>
+        {/* Our Approach */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Our Approach</h2>
+          <p style={{fontSize: '20px', lineHeight: '1.8', color: '#4a4a4a', maxWidth: '900px'}}>
+            Verifiex operates at the intersection of artificial intelligence, information science, and responsible technology.
+            We build systems that enhance human judgment rather than automate it away.
+          </p>
+          <div style={styles.pillarsGrid}>
+            {pillars.map((pillar, index) => (
+              <div
+                key={index}
+                style={styles.pillarCard}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div style={styles.pillarIcon}>{pillar.icon}</div>
+                <h3 style={styles.pillarTitle}>{pillar.title}</h3>
+                <p style={styles.pillarDescription}>{pillar.description}</p>
+              </div>
+            ))}
           </div>
-          <div className="highlight">
-            <div className="highlight-value">Explainable AI</div>
-            <div className="highlight-label">Transparent reasoning for decisions</div>
+        </section>
+
+        {/* Architecture */}
+        <section style={{...styles.section, ...styles.architectureSection}}>
+          <h2 style={styles.sectionTitle}>Designed for Enterprise Scale</h2>
+          <p style={{fontSize: '20px', lineHeight: '1.8', color: '#4a4a4a', maxWidth: '900px'}}>
+            Our architecture is modular, scalable, and built for mission-critical deployments.
+          </p>
+          <div style={styles.layerStack}>
+            {layers.map((layer, index) => (
+              <div
+                key={index}
+                style={styles.layer}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div>
+                  <div style={styles.layerTitle}>{layer.title}</div>
+                  <div style={styles.layerDescription}>{layer.description}</div>
+                </div>
+                <div style={{fontSize: '32px', color: 'rgba(37, 99, 235, 0.5)'}}>→</div>
+              </div>
+            ))}
           </div>
-          <div className="highlight">
-            <div className="highlight-value">Enterprise Ready</div>
-            <div className="highlight-label">Scalable & modular architecture</div>
+        </section>
+
+        {/* Who We Serve */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Who We Serve</h2>
+          <div style={styles.segmentGrid}>
+            {segments.map((segment, index) => (
+              <div
+                key={index}
+                style={styles.segmentCard}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <h3 style={styles.segmentTitle}>{segment.title}</h3>
+                <p style={styles.segmentDescription}>{segment.description}</p>
+              </div>
+            ))}
           </div>
-          <div className="highlight">
-            <div className="highlight-value">Secure</div>
-            <div className="highlight-label">Privacy-first prototype design</div>
+        </section>
+
+        {/* Responsible AI */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Responsible AI Commitment</h2>
+          <div style={styles.principlesList}>
+            {principles.map((principle, index) => (
+              <div key={index} style={styles.principle}>
+                <h3 style={styles.principleTitle}>{principle.title}</h3>
+                <p style={styles.principleText}>{principle.text}</p>
+              </div>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ================= WHY VERIFIEX AI ================= */}
-      <section className="abt-card fade-in">
-        <h2 className="abt-section-title">Why Verifiex AI?</h2>
-        <ul className="abt-values">
-          <li>Explainable, audit-ready credibility scoring — not a black box.</li>
-          <li>Bias-aware and manipulation-sensitive language analysis.</li>
-          <li>Designed for enterprise, research, and governance use cases.</li>
-          <li>Real-time risk intelligence instead of static fact-checking.</li>
-        </ul>
-      </section>
+        {/* Vision */}
+        <section style={styles.visionSection}>
+          <h2 style={styles.visionStatement}>
+            A World Where Information Can Be Trusted
+          </h2>
+          <p style={styles.visionText}>
+            We envision digital ecosystems where institutions, researchers, and citizens can navigate
+            information with confidence—supported by transparent, accountable intelligence infrastructure
+            that strengthens democratic discourse and organizational resilience.
+          </p>
+        </section>
 
-      {/* ================= IMPACT METRICS ================= */}
-      <section className="abt-card abt-metrics fade-in">
-        <h2 className="abt-section-title">Platform Impact</h2>
-
-        <div className="metrics-grid">
-          <div className="metric">
-            <h3>95%</h3>
-            <p>Explainability Confidence</p>
-          </div>
-          <div className="metric">
-            <h3>Real-Time</h3>
-            <p>Content Risk Detection</p>
-          </div>
-          <div className="metric">
-            <h3>Multi-Domain</h3>
-            <p>News & Media Coverage</p>
-          </div>
-          <div className="metric">
-            <h3>Prototype</h3>
-            <p>Enterprise SaaS Ready</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= TRUST & COMPLIANCE ================= */}
-      <section className="abt-card fade-in">
-        <h2 className="abt-section-title">Trust & Compliance</h2>
-        <ul className="abt-values">
-          <li>GDPR-aware architecture (data-minimal design).</li>
-          <li>Responsible AI development principles.</li>
-          <li>Security-first SaaS-ready system design.</li>
-          <li>Research and audit-friendly explainability layer.</li>
-        </ul>
-      </section>
-
-      {/* ================= PLATFORM OVERVIEW ================= */}
-      <section className="abt-card abt-project-card fade-in">
-        <h2 className="abt-section-title">Platform Overview</h2>
-
-        <p className="abt-description">
-          NewsGuard AI provides an intelligent framework for analyzing digital news content using
-          natural language processing techniques, heuristic analysis, and explainable AI principles.
-          The platform generates credibility scores along with interpretable reasoning, enabling
-          users to make informed decisions with confidence.
-        </p>
-
-        <ul className="abt-values">
-          <li><strong>Credibility Scoring Engine:</strong> Structural & linguistic analysis.</li>
-          <li><strong>Explainability Layer:</strong> Human-readable reasoning.</li>
-          <li><strong>Real-Time Monitoring:</strong> Emerging misinformation detection.</li>
-          <li><strong>Modular Architecture:</strong> ML & API extensibility.</li>
-        </ul>
-      </section>
-
-      {/* ================= DATA & MODEL TRANSPARENCY ================= */}
-      <section className="abt-card fade-in">
-        <h2 className="abt-section-title">Data & Model Transparency</h2>
-        <ul className="abt-values">
-          <li>Inputs: Language tone, structure, signals, and context.</li>
-          <li>Outputs: Credibility score, risk level, and reasoning.</li>
-          <li>Human-in-the-loop decision support.</li>
-          <li>Designed for explainability and audit use cases.</li>
-        </ul>
-      </section>
-
-      {/* ================= ENTERPRISE USE CASES ================= */}
-      <section className="abt-card abt-usecases fade-in">
-        <h2 className="abt-section-title">Enterprise Use Cases</h2>
-
-        <div className="usecase-grid">
-          <div className="usecase">
-            <h3>Media & Publishing</h3>
-            <p>Assist editorial teams by validating news credibility.</p>
-          </div>
-          <div className="usecase">
-            <h3>Research & Academia</h3>
-            <p>Analyze misinformation and bias trends.</p>
-          </div>
-          <div className="usecase">
-            <h3>Corporate Risk Intelligence</h3>
-            <p>Identify narratives impacting brand or markets.</p>
-          </div>
-          <div className="usecase">
-            <h3>Public Awareness Platforms</h3>
-            <p>Empower users to verify digital content.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= WHO USES THIS ================= */}
-      <section className="abt-card fade-in">
-        <h2 className="abt-section-title">Who Uses Verifiex AI?</h2>
-        <ul className="abt-values">
-          <li>Journalists & Editors</li>
-          <li>Researchers & Academicians</li>
-          <li>Corporate Analysts</li>
-          <li>Policy & Governance Teams</li>
-          <li>Educators & Media Literacy Platforms</li>
-        </ul>
-      </section>
-
-      {/* ================= AI LIMITATIONS ================= */}
-      <section className="abt-card fade-in">
-        <h2 className="abt-section-title">AI Limitations & Disclaimers</h2>
-        <ul className="abt-values">
-          <li>AI-generated scores are probabilistic, not absolute truth.</li>
-          <li>Human judgment is always recommended.</li>
-          <li>Model behavior may evolve with new data.</li>
-          <li>Designed to assist — not replace — decision-makers.</li>
-        </ul>
-      </section>
-
-      {/* ================= RESPONSIBLE AI ================= */}
-      <section className="abt-card abt-ethics fade-in">
-        <h2 className="abt-section-title">Responsible AI Principles</h2>
-
-        <ul className="abt-values">
-          <li><strong>Transparency:</strong> Explainable decisions.</li>
-          <li><strong>Accountability:</strong> Human oversight.</li>
-          <li><strong>Privacy:</strong> Minimal data usage.</li>
-          <li><strong>Fairness:</strong> Bias-aware design.</li>
-        </ul>
-      </section>
-
-      {/* ================= VISION ================= */}
-      <section className="abt-card fade-in">
-        <h2 className="abt-section-title">Our Vision</h2>
-        <p className="abt-description">
-          To build a transparent, accountable AI intelligence layer that helps
-          societies, organizations, and individuals navigate digital information
-          with clarity, trust, and responsibility.
-        </p>
-      </section>
-
-      {/* ================= TECH STACK ================= */}
-      <section className="abt-card abt-tech fade-in">
-        <h2 className="abt-section-title">Technology Stack</h2>
-
-        <div className="tech-grid">
-          <div className="tech"><strong>Frontend</strong><div>React.js</div></div>
-          <div className="tech"><strong>Backend</strong><div>Flask / REST APIs</div></div>
-          <div className="tech"><strong>AI & NLP</strong><div>NLP Pipelines</div></div>
-          <div className="tech"><strong>Security</strong><div>API-ready design</div></div>
-        </div>
-      </section>
-
-      {/* ================= CTA ================= */}
-      <section className="abt-card abt-cta fade-in">
-        <h2 className="abt-section-title">Interested in Collaboration?</h2>
-        <p className="abt-description">
-          Organizations, researchers, and enterprises are welcome to connect.
-        </p>
-        <div className="cta-row">
-          <a className="cta-btn primary" href="mailto:contact@newsguardai.com">
+        {/* CTA */}
+        <section style={styles.ctaSection}>
+          <h2 style={styles.ctaTitle}>Partner With Us</h2>
+          <p style={styles.ctaText}>
+            Join leading institutions in strengthening information integrity across digital ecosystems.
+          </p>
+          <a
+            href="mailto:contact@verifiex.ai"
+            style={styles.ctaButton}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             Request Enterprise Demo
           </a>
-        </div>
-      </section>
-
-    </main>
+        </section>
+      </main>
+    </div>
   );
 }
 
