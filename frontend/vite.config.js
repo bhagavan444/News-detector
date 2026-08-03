@@ -15,7 +15,7 @@ export default defineConfig({
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
           'vendor-motion': ['framer-motion'],
-          'vendor-charts': ['recharts', 'd3', 'd3-cloud', 'react-d3-cloud'],
+          'vendor-charts': ['recharts'],
           'vendor-firebase': ['firebase/app', 'firebase/auth', 'firebase/firestore']
         }
       }
