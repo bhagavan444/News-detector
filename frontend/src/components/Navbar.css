@@ -50,6 +50,15 @@
   transform: scale(1.04);
 }
 
+.mobile-brand-name {
+  display: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.15em;
+  margin-left: 10px;
+}
+
 /* Official apple.com Desktop Navigation */
 .nav-desktop {
   display: flex;
@@ -458,5 +467,9 @@
 
   .navbar-content {
     padding: 0 20px;
+  }
+
+  .mobile-brand-name {
+    display: block;
   }
 }

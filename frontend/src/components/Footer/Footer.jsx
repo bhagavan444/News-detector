@@ -75,7 +75,10 @@ export default function Footer() {
           <div className={styles.metadata}>
             <strong>VERITAS</strong>
             <span>Version 1.0</span>
-            <span>Built with React, FastAPI, MongoDB and Explainable Intelligence Architecture.</span>
+            <span>Frontend Experience — Public</span>
+            <span>Reasoning Engine — Internal Engineering Runtime</span>
+            <span>Built with React, FastAPI, MongoDB, and Explainable Intelligence Architecture.</span>
+            <span>Engineered for production-scale reasoning.</span>
           </div>
           <div className={styles.copyright}>
             <span>© 2026 VERITAS • Created by Bhagavan</span>

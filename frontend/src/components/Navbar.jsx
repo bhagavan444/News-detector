@@ -121,6 +121,7 @@ export default function Navbar({ handleLogout }) {
           {/* Official Apple-style Logo Area */}
           <Link to="/" className="navbar-brand" onClick={closeMenu}>
             <img src="/logo.jpg" alt="VERITAS" className="brand-logo" />
+            <span className="mobile-brand-name">VERITAS</span>
           </Link>
 
           {/* Official Apple.com Desktop Navigation */}

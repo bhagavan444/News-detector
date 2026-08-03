@@ -23,7 +23,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main style={{ backgroundColor: "#000", color: "#fff", overflowX: "hidden", width: "100%", position: "relative" }}>
+    <main style={{ backgroundColor: "#000", color: "#fff", width: "100%", position: "relative" }}>
       <SEOHead
         title="VERITAS — AI Truth Extraction & Verification Engine"
         description="VERITAS is an explainable AI truth extraction and verification engine that identifies factual claims, validates evidence, detects logical inconsistencies, and explains AI reasoning."

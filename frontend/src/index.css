@@ -19,7 +19,7 @@ html, body, #root {
 
 /* Prevent long horizontal overflow */
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Remove tap highlight on mobile for a cleaner experience */
