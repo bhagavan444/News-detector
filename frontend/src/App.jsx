@@ -120,7 +120,7 @@ function App() {
                 />
                 <Route
                   path="/predict"
-                  element={isLoggedIn ? <Predict /> : <Navigate to="/login" />}
+                  element={<Predict />}
                 />
                 <Route
                   path="/admin"
