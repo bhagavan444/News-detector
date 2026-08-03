@@ -1,255 +1,136 @@
-🚀 Fake News Detection System
 
-📌 1. Project Vision
+<div align="center">
 
-This is not just a text classifier.
+# 📊 Veritas
 
-It is a machine learning–powered misinformation detection system designed to analyze news content and classify it as Fake or Real using Natural Language Processing (NLP).
+### Explainable Intelligence Platform
 
-The system:
+**Claim Extraction • Credibility Analysis • Bias Detection • Decision Intelligence**
 
-Accepts news headlines or full articles
+<p>
+<img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=700&size=24&pause=1200&color=10B981&center=true&vCenter=true&width=920&lines=Explainable+Intelligence+Platform;Claim+Extraction;Credibility+Analysis;Bias+Detection;Decision+Intelligence;AI+Powered+News+Analysis"/>
+</p>
 
-Performs text preprocessing
+<p>
+<img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/AI-Explainable-10B981?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Frontend-React-61DAFB?style=for-the-badge&logo=react"/>
+<img src="https://img.shields.io/badge/Backend-Python-3776AB?style=for-the-badge&logo=python"/>
+<img src="https://img.shields.io/badge/License-MIT-black?style=for-the-badge"/>
+</p>
 
-Extracts linguistic features
+</div>
 
-Applies trained ML models
+---
 
-Outputs prediction with confidence score
+# 🌟 Overview
 
-In production terms, this is:
+**Veritas** is an Explainable Intelligence Platform that transforms unstructured articles and reports into structured, trustworthy intelligence.
 
-An NLP-based classification microservice with a real-time web interface.
+Instead of only generating summaries, Veritas identifies claims, evaluates credibility, detects bias, traces reasoning, and presents transparent AI-assisted insights for informed decision-making.
 
-⚙️ 2. End-to-End System Flow (Real-Time Execution)
-Runtime Workflow
+---
 
-User enters news text in the web interface
+# ✨ Core Features
 
-Frontend sends structured JSON to backend API
+- 📰 Article Intelligence
+- 🧩 Claim Extraction
+- ✅ Credibility Analysis
+- ⚖️ Bias Detection
+- 🧠 Explainable AI
+- 🔗 Evidence Mapping
+- 📑 Executive Intelligence Reports
+- 📊 Decision Support
+- 🤖 AI-Powered Insights
 
-Backend preprocesses input text
+---
 
-Text converted into numerical vectors (TF-IDF / embeddings)
+# 🏗️ System Architecture
 
-Trained ML model predicts Fake or Real
+```text
+             News / Reports
+                    │
+                    ▼
+          Document Processing
+                    │
+        ┌───────────┼───────────┐
+        │           │           │
+  Claim Engine  Bias Engine  Credibility
+        │           │           │
+        └───────────┼───────────┘
+                    │
+           Explainable AI Layer
+                    │
+          Executive Intelligence
+```
 
-Confidence probability calculated
+---
 
-Backend returns structured JSON
+# 🛠️ Technology Stack
 
-Frontend displays prediction result
+| Layer | Technologies |
+|-------|--------------|
+| Frontend | React, Vite |
+| Backend | Python, Flask / FastAPI |
+| AI | Google Gemini API, NLP, Prompt Engineering |
+| ML | Scikit-Learn |
+| Database | MongoDB |
+| Deployment | Vercel, Render |
 
-🏗 3. High-Level System Architecture
-4
-Architecture Layers
-1️⃣ Presentation Layer (Frontend)
+---
 
-React.js
+# 📸 Platform Modules
 
-Text input interface
+- 📰 News Analyzer
+- 📌 Claim Extraction
+- 📈 Credibility Scoring
+- ⚖️ Bias Detection
+- 🧠 AI Explanation Engine
+- 📋 Executive Reports
+- 🔎 Source Intelligence
+- 📊 Decision Dashboard
 
-Prediction result visualization
+---
 
-Loading & error states
+# 📊 Repository Analytics
 
-2️⃣ Application Layer (Backend API)
+<p align="center">
+<img height="170" src="https://github-readme-stats.vercel.app/api/pin/?username=thenameisbhagavan&repo=veritas&theme=transparent"/>
+</p>
 
-Flask / Express REST API
+---
 
-Input validation
+# 🗺️ Roadmap
 
-Text preprocessing pipeline
+- ✅ Claim Extraction
+- ✅ Credibility Analysis
+- ✅ Bias Detection
+- ✅ Explainable Reports
+- 🔄 Multi-source Verification
+- 🔄 Knowledge Graph
+- ⏳ Browser Extension
+- ⏳ Enterprise Dashboard
 
-Model inference endpoint
+---
 
-Error handling
+# 🌍 Vision
 
-3️⃣ NLP & Machine Learning Layer
+Veritas aims to make AI-generated intelligence transparent, explainable, and trustworthy by helping users understand **what is true, why it matters, and how conclusions are formed**.
 
-Text cleaning (lowercasing, stopword removal)
+---
 
-Tokenization
+# 🤝 Contributing
 
-TF-IDF Vectorization
+Contributions, ideas, bug reports, and feature requests are welcome.
 
-Trained classification model
+---
 
-Probability scoring
+<div align="center">
 
-4️⃣ Data & Infrastructure Layer
+### ⭐ If you like Veritas, consider starring this repository!
 
-Dataset preprocessing
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=thenameisbhagavan&theme=github-compact"/>
 
-Model serialization (Pickle / Joblib)
+**Turning Information into Trustworthy Intelligence.**
 
-Environment variable configuration
-
-Deployment-ready backend structure
-
-🧠 4. Machine Learning Pipeline
-🔹 Data Preprocessing Steps
-
-Remove punctuation
-
-Convert to lowercase
-
-Remove stopwords
-
-Lemmatization / stemming
-
-Tokenization
-
-🔹 Feature Engineering
-
-TF-IDF Vectorization
-
-N-gram modeling
-
-Vocabulary limitation
-
-Sparse matrix transformation
-
-🔹 Model Training
-
-Possible algorithms:
-
-Logistic Regression
-
-Naive Bayes
-
-Support Vector Machine
-
-Random Forest
-
-🔹 Backend Prediction Endpoint Example
-@app.route("/predict", methods=["POST"])
-def predict():
-    data = request.json
-    text = data.get("news")
-
-    processed_text = preprocess(text)
-    vector = vectorizer.transform([processed_text])
-    prediction = model.predict(vector)
-    probability = model.predict_proba(vector)
-
-    return jsonify({
-        "prediction": prediction[0],
-        "confidence": float(max(probability[0]))
-    })
-
-Internal Backend Execution Steps
-
-Request parsing
-
-Text cleaning
-
-Vector transformation
-
-Model inference
-
-Probability extraction
-
-JSON formatting
-
-HTTP response
-
-📊 5. Model Evaluation & Performance
-
-To make this strong, include:
-
-Accuracy
-
-Precision
-
-Recall
-
-F1-score
-
-Confusion Matrix
-
-Example:
-
-Model Accuracy: 94.3%
-F1 Score: 0.92
-
-If you don’t mention metrics, it weakens credibility.
-
-💻 6. Frontend Interaction Logic
-const handlePredict = async () => {
-  const response = await axios.post("/predict", {
-    news: userInput
-  });
-
-  setResult(response.data.prediction);
-  setConfidence(response.data.confidence);
-};
-
-Frontend Responsibilities
-
-Capture user input
-
-Send structured JSON request
-
-Display prediction result
-
-Show confidence score
-
-Handle errors gracefully
-
-📊 7. System Diagrams
-🏛 7.1 System Architecture Diagram
-<img width="245" height="684" alt="image" src="https://github.com/user-attachments/assets/ebe1d7a9-f3e0-4690-bf20-78e54fcdfcff" />
-🔄 7.2 Sequence Diagram
-<img width="504" height="355" alt="image" src="https://github.com/user-attachments/assets/39d2d35b-f2bf-4777-9715-987a942dcae7" />
-🚀 7.3 Deployment Diagram
-<img width="246" height="356" alt="image" src="https://github.com/user-attachments/assets/91bd25a3-14b7-4b4a-b774-19222707a3d4" />
-📸 8. User Interface Screenshots
-
-After creating a screenshots/ folder:
-Project screen shots are available in this folder 
-🔥 9. Current Limitations
-
-❌ Limited to trained dataset domain
-
-❌ No real-time news API integration
-
-❌ Not fine-tuned on latest misinformation trends
-
-❌ No deep learning transformer-based model
-
-🚀 10. Future Enhancements
-
-Integrate BERT / Transformer-based model
-
-Add real-time news API integration
-
-Implement explainable AI (feature importance visualization)
-
-Deploy as scalable microservice
-
-Add multilingual fake news detection
-
-Add browser extension integration
-
-🎓 Learning Outcomes
-
-NLP preprocessing techniques
-
-Feature engineering with TF-IDF
-
-Text classification models
-
-Model evaluation metrics
-
-REST API integration with ML
-
-Full-stack ML deployment
-
-👨‍💻 Author
-
-Siva Satya Sai Bhagavan Gopalajosyula
-B.Tech – Artificial Intelligence & Data Science
-
-
+</div>
