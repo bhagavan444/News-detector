@@ -79,3 +79,27 @@
 .secondaryButton:active {
   transform: scale(0.98);
 }
+
+@media (max-width: 768px) {
+  .ctaContainer {
+    padding: 6rem 1.25rem;
+    height: auto;
+    min-height: 60vh;
+  }
+  .title {
+    font-size: clamp(2.2rem, 9vw, 3.8rem);
+    margin-bottom: 2.5rem;
+    word-break: break-word;
+  }
+  .buttonGroup {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem 2rem;
+  }
+}

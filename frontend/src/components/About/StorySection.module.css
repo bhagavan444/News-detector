@@ -29,3 +29,15 @@
   margin: 0;
   line-height: 1.1;
 }
+
+@media (max-width: 768px) {
+  .statementWrapper {
+    padding: 0 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .statementText {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    word-break: break-word;
+  }
+}

@@ -6,6 +6,9 @@
   align-items: center;
   padding: 10rem 2rem;
   position: relative;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .introText {
@@ -185,4 +188,41 @@
   padding: 2rem;
   border-left: 4px solid #1d1d1f;
   font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .revealContainer {
+    padding: 5rem 1.25rem;
+  }
+  .introText {
+    margin-bottom: 3.5rem;
+  }
+  .heading {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+  .subheading {
+    font-size: 1.15rem;
+  }
+  .reportHeader {
+    padding: 2.25rem 1.5rem 1.5rem 1.5rem;
+  }
+  .reportMeta {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  .reportTitle {
+    font-size: 1.75rem;
+    line-height: 1.25;
+  }
+  .reportBody {
+    padding: 2rem 1.5rem 2.5rem 1.5rem;
+  }
+  .gridSection {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .verdictBox {
+    padding: 1.5rem;
+  }
 }

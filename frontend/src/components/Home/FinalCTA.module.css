@@ -87,3 +87,33 @@
 .button:active {
   transform: scale(0.98);
 }
+
+@media (max-width: 768px) {
+  .ctaContainer {
+    height: auto;
+    min-height: 80vh;
+    padding: 6rem 1.5rem;
+  }
+  .title {
+    font-size: clamp(2.4rem, 11vw, 4.5rem);
+    line-height: 1.1;
+  }
+  .subtitle {
+    font-size: 1.15rem;
+    margin-top: 0.8rem;
+    margin-bottom: 2.5rem;
+  }
+  .button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+  .methodologyLinks {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .divider {
+    display: none;
+  }
+}

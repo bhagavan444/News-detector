@@ -43,3 +43,16 @@
   margin: 0;
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .layerText {
+    font-size: clamp(2.2rem, 9vw, 4rem);
+    padding: 0 1.25rem;
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+  .contextLabel {
+    top: 15%;
+    font-size: 0.85rem;
+  }
+}

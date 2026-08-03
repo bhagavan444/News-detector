@@ -2,6 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer/Footer';
 import styles from './Technology.module.css';
+import SEOHead from '../components/seo/SEOHead';
+import {
+  getTechArticleSchema,
+  getSoftwareApplicationSchema,
+  getBreadcrumbSchema,
+  getSpeakableSchema,
+} from '../components/seo/veritasSchemas';
 
 const ARCHITECTURE_LAYERS = [
   {
@@ -57,6 +64,21 @@ const ARCHITECTURE_LAYERS = [
 export default function Technology() {
   return (
     <main className={styles.techPage}>
+      <SEOHead
+        title="VERITAS Architecture | Six-Layer AI Truth Extraction Pipeline"
+        description="Explore the deterministic six-layer VERITAS architecture: article processing, claim extraction, credibility engine, bias engine, explanation engine, and intelligence report generation."
+        canonicalPath="/technology"
+        schema={[
+          getTechArticleSchema({
+            title: "VERITAS Architecture | Six-Layer AI Truth Extraction Pipeline",
+            description: "An architectural deep-dive into the VERITAS six-layer AI truth extraction and verification pipeline.",
+            path: "/technology",
+          }),
+          getSoftwareApplicationSchema(),
+          getSpeakableSchema("/technology"),
+          getBreadcrumbSchema([{ name: "Technology", path: "/technology" }]),
+        ]}
+      />
       <div className={styles.container}>
         <motion.div 
           className={styles.header}

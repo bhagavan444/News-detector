@@ -37,3 +37,16 @@
   margin: 0;
   letter-spacing: -0.02em;
 }
+
+@media (max-width: 768px) {
+  .philosophyContainer {
+    padding: 6rem 1.5rem;
+  }
+  .grid {
+    gap: 4rem;
+  }
+  .title, .titleHighlight {
+    font-size: clamp(1.65rem, 6.5vw, 2.5rem);
+    line-height: 1.25;
+  }
+}

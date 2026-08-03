@@ -56,3 +56,27 @@
   margin: 0;
   letter-spacing: -0.01em;
 }
+
+@media (max-width: 768px) {
+  .systemContainer {
+    padding: 5rem 1.25rem 6rem 1.25rem;
+  }
+  .intro {
+    margin-bottom: 3.5rem;
+  }
+  .title {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    word-break: break-word;
+  }
+  .storyStack {
+    gap: 3rem;
+  }
+  .storyBlock h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .storyBlock p {
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+}

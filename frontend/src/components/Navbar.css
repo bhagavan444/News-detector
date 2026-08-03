@@ -1,6 +1,6 @@
 /* 
   Navbar.css
-  VERITAS Premium Apple Design System
+  VERITAS Official apple.com Global Navigation Bar & Liquid Glass Mobile Sheet
 */
 
 .navbar-container {
@@ -9,79 +9,101 @@
   left: 0;
   right: 0;
   height: 44px;
-  z-index: 1000;
-  /* Initial State: Transparent, floating over hero */
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  transition: all 600ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.navbar-container.scrolled {
-  /* Scrolled State: Liquid Glass */
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  z-index: 2000;
+  background: rgba(22, 22, 23, 0.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar-content {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 24px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* Logo Area */
+/* Official Apple-style Logo Area */
 .navbar-brand {
   display: flex;
   align-items: center;
   text-decoration: none;
   cursor: pointer;
+  z-index: 2100;
+  margin-right: 24px;
 }
 
 .brand-logo {
-  height: 20px;
+  height: 18px;
   width: auto;
-  border-radius: 4px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  border-radius: 3px;
+  display: block;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .brand-logo:hover {
-  opacity: 0.8;
+  opacity: 0.85;
+  transform: scale(1.04);
 }
 
-/* Desktop Navigation */
+/* Official apple.com Desktop Navigation */
 .nav-desktop {
   display: flex;
   align-items: center;
-  gap: 32px;
+  justify-content: center;
+  flex: 1;
+  gap: 24px;
 }
 
 .nav-link {
-  font-size: 0.85rem;
+  font-size: 12px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: color 0.2s ease, opacity 0.2s ease;
   letter-spacing: -0.01em;
-}
-
-.navbar-container.scrolled .nav-link {
-  color: rgba(0, 0, 0, 0.8);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
-  opacity: 0.6;
+  color: #fff;
+  opacity: 1;
 }
 
-/* Right Action */
+.nav-link.active {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Right Actions (Apple Search Icon + Profile) */
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-left: 16px;
+}
+
+/* Minimalist Apple.com Search Icon Button */
+.nav-icon-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-icon-btn:hover {
+  color: #fff;
+  transform: scale(1.08);
 }
 
 /* Profile Area */
@@ -103,52 +125,43 @@
 }
 
 .profile-btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .profile-img {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.navbar-container.scrolled .profile-img {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .profile-img-fallback {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: #000;
+  background: rgba(255, 255, 255, 0.15);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.navbar-container.scrolled .profile-img-fallback {
-  background: rgba(0, 0, 0, 0.05);
-  color: #000;
+  font-size: 0.72rem;
+  font-weight: 600;
 }
 
 .profile-dropdown {
   position: absolute;
   top: calc(100% + 12px);
   right: 0;
-  min-width: 220px;
-  background: rgba(255, 255, 255, 0.85);
+  min-width: 230px;
+  background: rgba(22, 22, 26, 0.92);
   backdrop-filter: blur(30px) saturate(180%);
   -webkit-backdrop-filter: blur(30px) saturate(180%);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
   padding: 16px;
-  z-index: 1001;
+  z-index: 2500;
   transform-origin: top right;
 }
 
@@ -157,10 +170,9 @@
   color: #86868b;
   margin: 0 0 12px 0;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   word-break: break-all;
   font-weight: 500;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .dropdown-logout {
@@ -171,139 +183,280 @@
   border-radius: 6px;
   font-size: 0.85rem;
   font-weight: 500;
-  color: #e30000; /* Subtle red for logout */
+  color: #ff4d4d;
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: left;
 }
 
 .dropdown-logout:hover {
-  background: rgba(227, 0, 0, 0.05);
+  background: rgba(255, 77, 77, 0.1);
 }
 
-/* Very subtle pill button */
-.cta-pill {
-  height: 28px;
-  padding: 0 16px;
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 500;
-  border: none;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+/* Mobile Actions (Search + Hamburger) */
+.mobile-navbar-actions {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  z-index: 2100;
 }
 
-.navbar-container.scrolled .cta-pill {
-  background: rgba(0, 0, 0, 0.05);
-  color: #000;
-}
-
-.cta-pill:hover {
-  transform: scale(1.02);
-  background: rgba(255, 255, 255, 0.25);
-}
-
-.navbar-container.scrolled .cta-pill:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-/* Mobile Hamburger */
 .nav-hamburger {
   display: none;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 8px;
-  z-index: 2000;
+  padding: 6px;
+  z-index: 2100;
 }
 
 .hamburger-line {
-  width: 20px;
-  height: 1px;
+  width: 18px;
+  height: 1.5px;
   background-color: #fff;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.navbar-container.scrolled .hamburger-line {
-  background-color: #000;
-}
-
-.hamburger-line.open {
-  background-color: #000;
+  border-radius: 2px;
 }
 
 .hamburger-line.open:nth-child(1) {
-  transform: translateY(3.5px) rotate(45deg);
+  transform: translateY(3.25px) rotate(45deg);
 }
 
 .hamburger-line.open:nth-child(2) {
-  transform: translateY(-3.5px) rotate(-45deg);
+  transform: translateY(-3.25px) rotate(-45deg);
 }
 
-/* Full-Screen Mobile Sheet */
+/* 2026 Apple Vision Pro / iOS 18 Liquid Glass Mobile Sheet */
 .mobile-sheet {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background: #fff;
+  background: rgba(10, 10, 14, 0.94);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
   z-index: 1500;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.mobile-nav-container {
+.mobile-sheet-content {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 68px 24px 40px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
+  gap: 28px;
+  min-height: 100%;
+}
+
+.mobile-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobile-search-bar:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.mobile-search-kbd {
+  margin-left: auto;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.mobile-nav-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobile-nav-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 14px 16px;
+}
+
+.mobile-section-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 2px 6px 6px;
 }
 
 .mobile-link {
-  font-size: 2.5rem;
-  font-weight: 500;
-  color: #000;
-  text-decoration: none;
-  letter-spacing: -0.04em;
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
-}
-
-.mobile-link:hover {
-  opacity: 1;
-}
-
-.mobile-cta {
-  margin-top: 20px;
-  height: 56px;
-  background: #000;
-  color: #fff;
   font-size: 1.1rem;
   font-weight: 500;
-  border: none;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.mobile-link:hover,
+.mobile-link.active {
+  background: rgba(255, 255, 255, 0.09);
+  color: #fff;
+}
+
+.primary-highlight {
+  color: #fff;
+  font-weight: 600;
+}
+
+.mobile-link-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 2px 8px;
   border-radius: 9999px;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.desktop-link-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 2px 6px;
+  border-radius: 9999px;
+  margin-left: 6px;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  vertical-align: middle;
+}
+
+.mobile-social-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+}
+
+.mobile-social-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 4px 4px;
+}
+
+.mobile-social-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mobile-social-link {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.mobile-social-link:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.mobile-footer-bar {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-cta-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.mobile-cta-btn:hover {
+  transform: scale(1.02);
+  background: #f0f0f5;
+}
+
+.mobile-user-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 6px;
+}
+
+.mobile-user-email {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.mobile-logout-btn {
+  color: #ff4d4d;
+  background: transparent;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
 }
 
-/* Responsive Rules */
-@media (max-width: 768px) {
-  .nav-desktop, .nav-actions {
+/* Responsive Breakpoints */
+@media (max-width: 1080px) {
+  .nav-desktop {
     display: none;
   }
+
   .nav-hamburger {
     display: flex;
   }
+
   .navbar-content {
-    padding: 0 24px;
+    padding: 0 20px;
   }
 }

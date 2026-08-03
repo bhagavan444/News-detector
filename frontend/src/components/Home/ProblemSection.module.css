@@ -22,16 +22,29 @@
 }
 
 .heading {
-  font-size: clamp(3rem, 6vw, 6rem);
+  font-size: clamp(2rem, 6.5vw, 6rem);
   font-weight: 600;
   letter-spacing: -0.03em;
   color: #f5f5f7;
-  margin: 0;
-  line-height: 1.1;
+  margin: 0 auto;
+  max-width: 1080px;
+  line-height: 1.15;
+  word-break: break-word;
 }
 
 .highlight {
   background: linear-gradient(90deg, #fff 0%, #888 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .statement {
+    padding: 0 1.25rem;
+  }
+  .heading {
+    font-size: clamp(1.6rem, 7vw, 2.8rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
 }

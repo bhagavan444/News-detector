@@ -49,3 +49,24 @@
   margin: 0 0 3rem 0;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
+
+@media (max-width: 768px) {
+  .briefContainer {
+    padding: 6rem 1.25rem 3rem 1.25rem;
+    min-height: auto;
+  }
+  .headline {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    margin-bottom: 2rem;
+    word-break: break-word;
+  }
+  .summary {
+    font-size: clamp(1.15rem, 4.5vw, 1.8rem);
+    line-height: 1.45;
+    margin-bottom: 3rem;
+  }
+  .confidenceText {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+  }
+}

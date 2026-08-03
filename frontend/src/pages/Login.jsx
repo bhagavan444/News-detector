@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import SEOHead from "../components/seo/SEOHead";
 import {
   signInWithPopup,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth, googleProvider } from "../firebase";
 import { useNavigate, Link } from "react-router-dom";
@@ -84,6 +84,12 @@ export default function Login({ handleLogin }) {
 
   return (
     <div className={styles.pageWrapper}>
+      <SEOHead
+        title="Sign In | VERITAS Workspace"
+        description="Sign in to your VERITAS AI account."
+        canonicalPath="/login"
+        noindex={true}
+      />
       {/* SECTION 1 & 2: Hero and Auth Surface */}
       <section className={styles.heroSection}>
         

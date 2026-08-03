@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 import { auth } from '../firebase';
 import { getUserHistory, updateReport } from '../services/reportService';
 import Navbar from '../components/Navbar';
@@ -61,6 +62,12 @@ export default function Workspace() {
 
   return (
     <div className={styles.workspaceWrapper}>
+      <SEOHead
+        title="Intelligence Library | VERITAS Workspace"
+        description="Private VERITAS AI user workspace."
+        canonicalPath="/workspace"
+        noindex={true}
+      />
       <Navbar />
       <main className={styles.workspaceMain}>
         <div className={styles.sidebar}>

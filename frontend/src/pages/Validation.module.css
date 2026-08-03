@@ -4,6 +4,9 @@
   min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   padding-top: 80px;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .container {
@@ -92,13 +95,6 @@
 .baselineCell {
   color: #86868b;
   font-style: italic;
-}
-
-@media (max-width: 768px) {
-  .splitSection {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
 }
 
 .metricsGrid {
@@ -202,4 +198,54 @@
 .fail {
   color: #ff3b30 !important;
   font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .valPage {
+    padding-top: 90px;
+  }
+  .container {
+    padding: 2.5rem 1.25rem 5rem 1.25rem;
+  }
+  .header {
+    margin-bottom: 3.5rem;
+  }
+  .title {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    word-break: break-word;
+  }
+  .subtitle {
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+  .splitSection {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+  .metricsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+  }
+  .metricCard {
+    padding: 1.5rem;
+    border-radius: 18px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .metricValue {
+    font-size: 3rem;
+  }
+  .tableWrapper {
+    padding: 0.75rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .dataTable th,
+  .dataTable td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.88rem;
+  }
 }

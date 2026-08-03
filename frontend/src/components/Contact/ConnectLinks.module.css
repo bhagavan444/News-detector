@@ -42,3 +42,18 @@
   color: #fff;
   transform: translateX(10px);
 }
+
+@media (max-width: 768px) {
+  .connectContainer {
+    padding: 4rem 1.25rem;
+  }
+  .content {
+    gap: 2.5rem;
+  }
+  .heading {
+    font-size: clamp(1.7rem, 7vw, 2.4rem);
+  }
+  .link {
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+  }
+}

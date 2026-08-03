@@ -36,7 +36,7 @@
 
 .stageText {
   position: absolute;
-  font-size: clamp(3rem, 7vw, 7rem);
+  font-size: clamp(2.2rem, 7vw, 7rem);
   font-weight: 600;
   letter-spacing: -0.03em;
   color: #fff;
@@ -45,6 +45,9 @@
   background: linear-gradient(180deg, #ffffff 0%, #a0a0a0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  padding: 0 1.25rem;
+  box-sizing: border-box;
+  word-break: break-word;
 }
 
 .progressBarContainer {
@@ -62,4 +65,23 @@
   height: 100%;
   background-color: #fff;
   border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .contextLabel {
+    top: 12%;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    padding: 0 1rem;
+    text-align: center;
+  }
+  .stageText {
+    font-size: clamp(1.8rem, 8vw, 3.2rem);
+    line-height: 1.2;
+  }
+  .progressBarContainer {
+    left: 14px;
+    top: 20%;
+    bottom: 20%;
+  }
 }

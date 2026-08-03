@@ -202,3 +202,42 @@
   border-left: 4px solid #1d1d1f;
   font-style: italic;
 }
+
+@media (max-width: 768px) {
+  .showcaseContainer {
+    padding: 6rem 1.25rem;
+  }
+  .heading {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    word-break: break-word;
+  }
+  .subheading {
+    font-size: 1.15rem;
+  }
+  .reportHeader {
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  }
+  .reportMeta {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  .reportTitle {
+    font-size: clamp(1.75rem, 7vw, 2.3rem);
+    word-break: break-word;
+  }
+  .reportBody {
+    padding: 2rem 1.5rem 2.5rem 1.5rem;
+  }
+  .gridSection {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .traceLog {
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  .verdictBox {
+    padding: 1.25rem;
+  }
+}

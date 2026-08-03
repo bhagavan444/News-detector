@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import SEOHead from "../components/seo/SEOHead";
 import { auth } from "../firebase";
 import {
   ResponsiveContainer,
@@ -612,6 +613,12 @@ function Admin() {
 
   return (
     <div style={styles.wrapper}>
+      <SEOHead
+        title="Admin Dashboard | VERITAS System"
+        description="VERITAS System Administration."
+        canonicalPath="/admin"
+        noindex={true}
+      />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
         

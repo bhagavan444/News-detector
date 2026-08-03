@@ -19,7 +19,7 @@
 }
 
 .title {
-  font-size: clamp(5rem, 15vw, 12rem);
+  font-size: clamp(3.2rem, 15vw, 12rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   margin: 0;
@@ -28,12 +28,33 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .subtitle {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.2rem, 3.5vw, 2.5rem);
   font-weight: 400;
   letter-spacing: -0.02em;
   color: #86868b;
   margin-top: 1.5rem;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;
+    min-height: 540px;
+    padding: 0 1.25rem;
+  }
+  .title {
+    font-size: clamp(2.8rem, 14vw, 5.5rem);
+    letter-spacing: -0.03em;
+  }
+  .subtitle {
+    margin-top: 1rem;
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
 }

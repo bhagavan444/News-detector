@@ -2,6 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer/Footer';
 import styles from './Research.module.css';
+import SEOHead from '../components/seo/SEOHead';
+import {
+  getTechArticleSchema,
+  getBreadcrumbSchema,
+  getSpeakableSchema,
+} from '../components/seo/veritasSchemas';
 
 export default function Research() {
   React.useEffect(() => {
@@ -10,6 +16,20 @@ export default function Research() {
 
   return (
     <main className={styles.researchPage}>
+      <SEOHead
+        title="Research & Methodology | VERITAS Explainable AI Truth Extraction"
+        description="The intellectual framework and deterministic methodology behind VERITAS: separating credibility from truth, bias from falsehood, and algorithmic transparency."
+        canonicalPath="/research"
+        schema={[
+          getTechArticleSchema({
+            title: "Research & Methodology | VERITAS Explainable AI Truth Extraction",
+            description: "An overview of VERITAS research methodology, deterministic credibility analysis, and bias measurement.",
+            path: "/research",
+          }),
+          getSpeakableSchema("/research"),
+          getBreadcrumbSchema([{ name: "Research", path: "/research" }]),
+        ]}
+      />
       <div className={styles.container}>
         <motion.div 
           className={styles.header}

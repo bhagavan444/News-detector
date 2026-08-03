@@ -59,7 +59,7 @@ const githubProvider = new GithubAuthProvider();
 const generateRecaptcha = () => {
   window.recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", {
     size: "invisible",
-    callback: (response) => {
+    callback: () => {
       console.log("Recaptcha verified");
     },
     "expired-callback": () => {

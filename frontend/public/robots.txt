@@ -1,0 +1,44 @@
+# VERITAS Robots.txt — Technical SEO & AI Crawling Directives
+# https://news-detector.vercel.app
+
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /technology
+Allow: /how-it-works
+Allow: /research
+Allow: /validation
+Allow: /compare
+Allow: /limitations
+Allow: /examples
+Allow: /plans
+Allow: /contact
+
+# Protect private user workspace and backend API routes
+Disallow: /predict
+Disallow: /workspace/
+Disallow: /admin
+Disallow: /login
+Disallow: /api/
+
+# Explicitly Allow AI Search Engines (Google AI Mode, Gemini, ChatGPT, Claude, Perplexity, Apple Intelligence)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap Location
+Sitemap: https://news-detector.vercel.app/sitemap.xml

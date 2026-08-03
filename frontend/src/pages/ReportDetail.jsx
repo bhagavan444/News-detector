@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 import { getReportById } from '../services/reportService';
 import IntelligenceBrief from '../components/Predict/IntelligenceBrief';
 import WhatMatters from '../components/Predict/WhatMatters';
@@ -49,6 +50,12 @@ export default function ReportDetail() {
 
   return (
     <main style={{ backgroundColor: '#000', color: '#fff', minHeight: '100vh' }}>
+      <SEOHead
+        title="Intelligence Report Detail | VERITAS Workspace"
+        description="Saved VERITAS AI report analysis."
+        canonicalPath={`/workspace/report/${id}`}
+        noindex={true}
+      />
       <Navbar />
       <div style={{ paddingTop: '80px', animation: "fadeIn 1s ease forwards" }}>
         <IntelligenceBrief report={reportData} />

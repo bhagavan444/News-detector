@@ -32,3 +32,17 @@
   color: #fff;
   font-weight: 600;
 }
+
+@media (max-width: 768px) {
+  .whyContainer {
+    padding: 6rem 1.25rem;
+  }
+  .content {
+    gap: 4rem;
+  }
+  .statement {
+    font-size: clamp(1.75rem, 7.5vw, 3rem);
+    line-height: 1.35;
+    word-break: break-word;
+  }
+}

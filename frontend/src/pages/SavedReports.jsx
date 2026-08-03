@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 import { auth } from '../firebase';
 import { getUserHistory, updateReport } from '../services/reportService';
 import Navbar from '../components/Navbar';
@@ -98,6 +99,12 @@ export default function SavedReports() {
 
   return (
     <div className={styles.workspaceWrapper}>
+      <SEOHead
+        title="Saved Reports | VERITAS Workspace"
+        description="Saved VERITAS AI intelligence reports."
+        canonicalPath="/workspace/saved"
+        noindex={true}
+      />
       <Navbar />
       <main className={styles.workspaceMain}>
         {/* SIDEBAR */}

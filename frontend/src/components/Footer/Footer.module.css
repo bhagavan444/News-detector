@@ -1,7 +1,7 @@
 .footerWrapper {
   background-color: #ffffff;
   color: #000000;
-  min-height: 70vh; /* Approximately 60-80vh */
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,7 +59,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2.5rem;
-  margin-bottom: 6rem;
+  margin-bottom: 3.5rem;
 }
 
 .navigationSection a {
@@ -75,7 +75,29 @@
   color: #6e6e73;
 }
 
-/* SECTION 3: Methodology Statement */
+/* SECTION 3: Social & Author Links (Apple Footer Directory Style) */
+.socialSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.8rem;
+  margin-bottom: 5rem;
+}
+
+.socialSection a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #6e6e73;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  letter-spacing: -0.01em;
+}
+
+.socialSection a:hover {
+  color: #000000;
+}
+
+/* SECTION 4: Methodology Statement */
 .methodologySection {
   margin-bottom: 6rem;
 }
@@ -89,7 +111,7 @@
   letter-spacing: 0.02em;
 }
 
-/* SECTION 4 & 5: Platform Metadata & Copyright */
+/* SECTION 5: Platform Metadata & Copyright */
 .bottomSection {
   width: 100%;
   border-top: 1px solid #e5e5ea;
@@ -134,5 +156,51 @@
   .copyright {
     align-items: flex-end;
     text-align: right;
+  }
+}
+
+@media (max-width: 767px) {
+  .footerWrapper {
+    padding: 5rem 1.25rem 3rem 1.25rem;
+  }
+  .closingSection {
+    margin-bottom: 3.5rem;
+  }
+  .brandMark {
+    margin-bottom: 1.8rem;
+    font-size: 1.1rem;
+  }
+  .manifesto {
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
+    line-height: 1.12;
+    word-break: break-word;
+  }
+  .manifestoSubtext {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  .navigationSection {
+    gap: 1.25rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .navigationSection a {
+    font-size: 1rem;
+    padding: 4px 0;
+  }
+  .socialSection {
+    gap: 1.2rem 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .socialSection a {
+    font-size: 0.9rem;
+    padding: 4px 0;
+  }
+  .methodologySection {
+    margin-bottom: 3.5rem;
+  }
+  .bottomSection {
+    padding-top: 2.5rem;
+    gap: 1.5rem;
+    text-align: center;
   }
 }

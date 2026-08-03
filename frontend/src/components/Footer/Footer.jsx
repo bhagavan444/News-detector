@@ -3,6 +3,16 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import styles from './Footer.module.css';
 
+const socialLinks = [
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/thenameisbhagavan/' },
+  { name: 'GitHub', url: 'https://github.com/thenameisbhagavan' },
+  { name: 'X (Twitter)', url: 'https://x.com/nameisbhagavan' },
+  { name: 'Instagram', url: 'https://www.instagram.com/thenameisbhagavan_/' },
+  { name: 'YouTube', url: 'https://www.youtube.com/@TheNameIsBhagavan' },
+  { name: 'Facebook', url: 'https://www.facebook.com/thenameisbhagavan' },
+  { name: 'Email', url: 'mailto:thenameisbhagavan@gmail.com' },
+];
+
 export default function Footer() {
   return (
     <footer className={styles.footerWrapper}>
@@ -35,9 +45,24 @@ export default function Footer() {
           <Link to="/compare">Compare</Link>
           <Link to="/limitations">Limitations</Link>
           <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
         </nav>
 
-        {/* SECTION 3: Methodology Statement */}
+        {/* SECTION 3: Social & Author Links */}
+        <nav className={styles.socialSection} aria-label="Author Social Networks">
+          {socialLinks.map((item) => (
+            <a
+              key={item.name}
+              href={item.url}
+              target={item.url.startsWith('mailto:') ? undefined : '_blank'}
+              rel={item.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+            >
+              {item.name} ↗
+            </a>
+          ))}
+        </nav>
+
+        {/* SECTION 4: Methodology Statement */}
         <section className={styles.methodologySection}>
           <p>Credibility ≠ Truth</p>
           <p>Bias ≠ Falsehood</p>
@@ -45,7 +70,7 @@ export default function Footer() {
           <p>VERITAS exposes evidence, reasoning, and structural signals so users can make informed judgments.</p>
         </section>
 
-        {/* SECTION 4 & 5: Platform Metadata & Copyright */}
+        {/* SECTION 5: Platform Metadata & Copyright */}
         <div className={styles.bottomSection}>
           <div className={styles.metadata}>
             <strong>VERITAS</strong>
@@ -53,7 +78,7 @@ export default function Footer() {
             <span>Built with React, FastAPI, MongoDB and Explainable Intelligence Architecture.</span>
           </div>
           <div className={styles.copyright}>
-            <span>© 2026 VERITAS</span>
+            <span>© 2026 VERITAS • Created by Bhagavan</span>
             <span>Intelligence, made transparent.</span>
           </div>
         </div>

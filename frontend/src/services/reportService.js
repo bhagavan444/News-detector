@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8000/api/v1";
+import { API_BASE_URL } from "../config/api";
 
 export const saveAnalysisHistory = async (userId, veritasReport) => {
   if (!userId || !veritasReport) return null;

@@ -2,6 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer/Footer';
 import styles from './Limitations.module.css';
+import SEOHead from '../components/seo/SEOHead';
+import {
+  getTechArticleSchema,
+  getBreadcrumbSchema,
+  getSpeakableSchema,
+} from '../components/seo/veritasSchemas';
 
 const LIMITATIONS_DATA = [
   {
@@ -43,6 +49,20 @@ export default function Limitations() {
 
   return (
     <main className={styles.limitationsPage}>
+      <SEOHead
+        title="System Limitations & Failure Modes | VERITAS Explainable AI"
+        description="Transparent documentation of VERITAS system limitations: satire detection, irony, paywalled sources, emerging breaking news, and unknown publishers."
+        canonicalPath="/limitations"
+        schema={[
+          getTechArticleSchema({
+            title: "System Limitations & Failure Modes | VERITAS Explainable AI",
+            description: "A technical review of VERITAS failure modes and analytical boundaries.",
+            path: "/limitations",
+          }),
+          getSpeakableSchema("/limitations"),
+          getBreadcrumbSchema([{ name: "Limitations", path: "/limitations" }]),
+        ]}
+      />
       <div className={styles.container}>
         <motion.div 
           className={styles.header}

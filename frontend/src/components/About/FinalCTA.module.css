@@ -54,3 +54,24 @@
 .button:active {
   transform: scale(0.98);
 }
+
+@media (max-width: 768px) {
+  .ctaContainer {
+    padding: 6rem 1.25rem;
+    height: auto;
+    min-height: 70vh;
+  }
+  .title {
+    font-size: clamp(2.2rem, 9vw, 3.8rem);
+    word-break: break-word;
+  }
+  .subtitle {
+    font-size: clamp(1.15rem, 4.5vw, 1.6rem);
+    margin-bottom: 2.5rem;
+  }
+  .button {
+    width: 100%;
+    max-width: 280px;
+    padding: 1rem 2rem;
+  }
+}

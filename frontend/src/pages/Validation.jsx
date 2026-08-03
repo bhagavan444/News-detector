@@ -2,6 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer/Footer';
 import styles from './Validation.module.css';
+import SEOHead from '../components/seo/SEOHead';
+import {
+  getTechArticleSchema,
+  getBreadcrumbSchema,
+  getSpeakableSchema,
+} from '../components/seo/veritasSchemas';
 
 const CATEGORIES = [
   "Reuters (Objective Wire)",
@@ -31,6 +37,20 @@ export default function Validation() {
 
   return (
     <main className={styles.valPage}>
+      <SEOHead
+        title="Empirical Validation & Benchmark Results | VERITAS Explainable AI"
+        description="Empirical validation benchmarks of VERITAS across Reuters, BBC News, institutional reports, editorials, and clickbait domains."
+        canonicalPath="/validation"
+        schema={[
+          getTechArticleSchema({
+            title: "Empirical Validation & Benchmark Results | VERITAS Explainable AI",
+            description: "An empirical audit of VERITAS credibility classification against objective baselines.",
+            path: "/validation",
+          }),
+          getSpeakableSchema("/validation"),
+          getBreadcrumbSchema([{ name: "Validation", path: "/validation" }]),
+        ]}
+      />
       <div className={styles.container}>
         <motion.div 
           className={styles.header}

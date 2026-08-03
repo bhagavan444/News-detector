@@ -2,6 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer/Footer';
 import styles from './Compare.module.css';
+import SEOHead from '../components/seo/SEOHead';
+import {
+  getTechArticleSchema,
+  getBreadcrumbSchema,
+  getSpeakableSchema,
+} from '../components/seo/veritasSchemas';
 
 const COMPARE_DATA = [
   {
@@ -42,6 +48,20 @@ export default function Compare() {
 
   return (
     <main className={styles.comparePage}>
+      <SEOHead
+        title="Comparative Analysis & Decision Traces | VERITAS Explainable AI"
+        description="Compare news reporting side-by-side with VERITAS: objective wire journalism vs opinion editorials, credibility scoring, bias framing, and decision traces."
+        canonicalPath="/compare"
+        schema={[
+          getTechArticleSchema({
+            title: "Comparative Analysis & Decision Traces | VERITAS Explainable AI",
+            description: "A side-by-side comparative analysis of credibility and bias across article types.",
+            path: "/compare",
+          }),
+          getSpeakableSchema("/compare"),
+          getBreadcrumbSchema([{ name: "Compare", path: "/compare" }]),
+        ]}
+      />
       <div className={styles.container}>
         <motion.div 
           className={styles.header}

@@ -63,3 +63,21 @@
   margin: 0;
   line-height: 1.4;
 }
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 6rem 1.25rem 3rem 1.25rem;
+    min-height: 80vh;
+    height: auto;
+  }
+  .title {
+    font-size: clamp(2.2rem, 9vw, 3.8rem);
+    margin-bottom: 2.5rem;
+    word-break: break-word;
+  }
+  .subtextHighlight,
+  .subtext {
+    font-size: clamp(1.05rem, 4.5vw, 1.4rem);
+    line-height: 1.45;
+  }
+}

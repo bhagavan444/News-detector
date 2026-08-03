@@ -6,6 +6,12 @@ import Reasoning from '../components/Predict/Reasoning';
 import FullReport from '../components/Predict/FullReport';
 import Footer from '../components/Footer/Footer';
 import styles from './Examples.module.css';
+import SEOHead from '../components/seo/SEOHead';
+import {
+  getTechArticleSchema,
+  getBreadcrumbSchema,
+  getSpeakableSchema,
+} from '../components/seo/veritasSchemas';
 
 // Pre-computed mock intelligence reports based on real-world articles
 const EXAMPLES_DATA = [
@@ -174,6 +180,20 @@ export default function Examples() {
 
   return (
     <main className={styles.examplesPage}>
+      <SEOHead
+        title="Intelligence Report Examples | VERITAS Explainable AI"
+        description="See how VERITAS processes real-world journalism, opinion editorials, and high-risk content into structured intelligence reports."
+        canonicalPath="/examples"
+        schema={[
+          getTechArticleSchema({
+            title: "Intelligence Report Examples | VERITAS Explainable AI",
+            description: "An empirical showcase of VERITAS intelligence reports across news articles.",
+            path: "/examples",
+          }),
+          getSpeakableSchema("/examples"),
+          getBreadcrumbSchema([{ name: "Examples", path: "/examples" }]),
+        ]}
+      />
       {!activeReport ? (
         <div className={styles.showcaseContainer}>
           <motion.div 

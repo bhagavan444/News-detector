@@ -1,0 +1,238 @@
+/*
+  AppleSearchModal.module.css
+  2026 Apple Spotlight Quick Search System for VERITAS
+*/
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 9998;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 100px 20px 40px;
+}
+
+.modalContainer {
+  width: 100%;
+  max-width: 640px;
+  background: rgba(22, 22, 26, 0.88);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 160px);
+}
+
+.searchHeader {
+  display: flex;
+  align-items: center;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 14px;
+  position: relative;
+}
+
+.searchIcon {
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.clearButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clearButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.shortcutBadge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.resultsArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 14px;
+}
+
+.resultsArea::-webkit-scrollbar {
+  width: 6px;
+}
+
+.resultsArea::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+.categoryGroup {
+  margin-bottom: 16px;
+}
+
+.categoryGroup:last-child {
+  margin-bottom: 4px;
+}
+
+.categoryTitle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 10px 12px 8px;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.resultItem:hover,
+.resultItem.active {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.resultContent {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.resultTitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.resultDescription {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.48);
+  line-height: 1.3;
+}
+
+.resultActionIcon {
+  color: rgba(255, 255, 255, 0.25);
+  transition: transform 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.resultItem:hover .resultActionIcon,
+.resultItem.active .resultActionIcon {
+  color: rgba(255, 255, 255, 0.8);
+  transform: translateX(3px);
+}
+
+.emptyState {
+  padding: 40px 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.92rem;
+}
+
+.footerBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.25);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footerKeyHint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.keyKbd {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 640px) {
+  .backdrop {
+    padding: 60px 14px 20px;
+  }
+  
+  .modalContainer {
+    max-height: calc(100vh - 80px);
+    border-radius: 16px;
+  }
+  
+  .searchHeader {
+    padding: 14px 18px;
+  }
+  
+  .searchInput {
+    font-size: 1rem;
+  }
+  
+  .shortcutBadge {
+    display: none;
+  }
+  
+  .footerBar {
+    display: none;
+  }
+}

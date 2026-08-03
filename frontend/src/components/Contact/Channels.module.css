@@ -38,3 +38,20 @@
   line-height: 1.5;
   letter-spacing: -0.01em;
 }
+
+@media (max-width: 768px) {
+  .channelsContainer {
+    padding: 5rem 1.25rem 3rem 1.25rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .title {
+    font-size: 1.6rem;
+  }
+  .description {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+}

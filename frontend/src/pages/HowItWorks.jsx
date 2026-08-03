@@ -2,6 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer/Footer';
 import styles from './HowItWorks.module.css';
+import SEOHead from '../components/seo/SEOHead';
+import {
+  getTechArticleSchema,
+  getFAQPageSchema,
+  getBreadcrumbSchema,
+  getSpeakableSchema,
+} from '../components/seo/veritasSchemas';
 
 const STEPS = [
   {
@@ -43,6 +50,21 @@ export default function HowItWorks() {
 
   return (
     <main className={styles.hiwPage}>
+      <SEOHead
+        title="How VERITAS Works | Six-Step AI Truth Extraction Lifecycle"
+        description="A six-step lifecycle from raw article ingestion to explainable intelligence: text cleaning, claim extraction, evidence evaluation, bias detection, reasoning synthesis, and intelligence reporting."
+        canonicalPath="/how-it-works"
+        schema={[
+          getTechArticleSchema({
+            title: "How VERITAS Works | Six-Step AI Truth Extraction Lifecycle",
+            description: "A technical overview of the six-step VERITAS truth extraction lifecycle.",
+            path: "/how-it-works",
+          }),
+          getFAQPageSchema(),
+          getSpeakableSchema("/how-it-works"),
+          getBreadcrumbSchema([{ name: "How It Works", path: "/how-it-works" }]),
+        ]}
+      />
       <div className={styles.container}>
         <motion.div 
           className={styles.header}

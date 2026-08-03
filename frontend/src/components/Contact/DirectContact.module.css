@@ -40,3 +40,17 @@
 .value:hover {
   color: #86868b;
 }
+
+@media (max-width: 768px) {
+  .directContainer {
+    padding: 5rem 1.25rem 6rem 1.25rem;
+  }
+  .content {
+    gap: 4rem;
+  }
+  .value,
+  .valueText {
+    font-size: clamp(1.6rem, 7vw, 2.8rem);
+    word-break: break-word;
+  }
+}

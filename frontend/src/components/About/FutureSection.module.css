@@ -42,3 +42,20 @@
   margin: 0;
   letter-spacing: -0.02em;
 }
+
+@media (max-width: 768px) {
+  .futureContainer {
+    padding: 6rem 1.25rem;
+  }
+  .content {
+    gap: 3rem;
+  }
+  .primaryStatement {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    word-break: break-word;
+  }
+  .secondaryStatements p {
+    font-size: clamp(1.15rem, 4.5vw, 1.8rem);
+    line-height: 1.45;
+  }
+}

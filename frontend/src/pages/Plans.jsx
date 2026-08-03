@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import SEOHead from "../components/seo/SEOHead";
+import {
+  getSoftwareApplicationSchema,
+  getFAQPageSchema,
+  getBreadcrumbSchema,
+  getSpeakableSchema,
+} from "../components/seo/veritasSchemas";
 
 /* ======================================================
    PRICING & PLANS — ENTERPRISE AI INFRASTRUCTURE
@@ -706,6 +713,17 @@ export default function Plans() {
 
   return (
     <div style={styles.container}>
+      <SEOHead
+        title="VERITAS Pricing & Plans | Explainable AI Truth Extraction"
+        description="Transparent pricing and enterprise deployment options for VERITAS AI truth extraction and verification infrastructure."
+        canonicalPath="/plans"
+        schema={[
+          getSoftwareApplicationSchema(),
+          getFAQPageSchema(),
+          getSpeakableSchema("/plans"),
+          getBreadcrumbSchema([{ name: "Plans", path: "/plans" }]),
+        ]}
+      />
       {/* Magnetic Cursor */}
       <div ref={cursorRef} style={styles.cursor} />
       <div ref={cursorDotRef} style={styles.cursorDot} />

@@ -175,3 +175,34 @@
   color: #86868b;
   font-style: italic;
 }
+
+@media (max-width: 768px) {
+  .reasoningContainer {
+    padding: 5rem 1.25rem;
+  }
+  .header {
+    margin-bottom: 3.5rem;
+  }
+  .title {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    word-break: break-word;
+  }
+  .subtitle {
+    font-size: 1.15rem;
+  }
+  .editorialGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .paragraph {
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .traceLog {
+    padding: 1.25rem;
+    overflow-x: auto;
+  }
+  .claimText {
+    font-size: 1rem;
+  }
+}

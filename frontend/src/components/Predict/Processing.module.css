@@ -1,6 +1,6 @@
 .processingContainer {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,15 +8,20 @@
   position: fixed;
   inset: 0;
   z-index: 100;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .stageTextWrapper {
   position: absolute;
   text-align: center;
+  padding: 0 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .stageText {
-  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-size: clamp(1.8rem, 6vw, 5rem);
   font-weight: 500;
   color: #ffffff;
   letter-spacing: -0.02em;
@@ -24,4 +29,5 @@
   background: linear-gradient(180deg, #ffffff 0%, #a0a0a0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  word-break: break-word;
 }

@@ -4,6 +4,8 @@
   min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* SECTION 1 & 2: Hero and Auth */
@@ -357,5 +359,69 @@
   }
   .trustSection {
     padding: 4rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 6rem 1.25rem 3rem 1.25rem;
+    gap: 2.5rem;
+  }
+  .brandTitle {
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+  }
+  .heroHeadline {
+    font-size: clamp(2.5rem, 9vw, 3.8rem);
+    word-break: break-word;
+  }
+  .heroSubheadline {
+    font-size: 1.35rem;
+    margin-bottom: 2rem;
+  }
+  .heroParagraph {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .authSurface {
+    padding: 2rem 1.5rem;
+    border-radius: 28px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .authTitle {
+    font-size: 1.75rem;
+  }
+  .unlockSection {
+    margin: 0 1rem 2rem 1rem;
+    padding: 2.5rem 1.25rem;
+    border-radius: 20px;
+  }
+  .unlockTitle {
+    font-size: clamp(2rem, 8vw, 3rem);
+    word-break: break-word;
+  }
+  .unlockSubtitle {
+    font-size: 1.15rem;
+  }
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .featureCard {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+  .trustSection {
+    padding: 3rem 1.25rem;
+  }
+  .trustContent h3 {
+    font-size: 2rem;
+  }
+  .trustContent p {
+    font-size: 1.15rem;
+  }
+  .footer {
+    padding: 3rem 1.25rem;
   }
 }

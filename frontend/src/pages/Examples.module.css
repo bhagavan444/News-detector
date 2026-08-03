@@ -4,6 +4,9 @@
   min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   padding-top: 80px; /* navbar padding */
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .showcaseContainer {
@@ -108,4 +111,48 @@
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .examplesPage {
+    padding-top: 90px;
+  }
+  .showcaseContainer {
+    padding: 2.5rem 1.25rem;
+  }
+  .header {
+    margin-bottom: 2.5rem;
+  }
+  .title {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    word-break: break-word;
+  }
+  .subtitle {
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .card {
+    padding: 1.5rem;
+    border-radius: 18px;
+  }
+  .cardTitle {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+  .cardDesc {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  .navBar {
+    padding: 0.75rem 1.25rem;
+    top: 70px;
+  }
+  .backBtn {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+  }
 }

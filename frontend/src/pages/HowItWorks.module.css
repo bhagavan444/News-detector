@@ -4,6 +4,9 @@
   min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   padding-top: 80px;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .container {
@@ -91,15 +94,47 @@
 }
 
 @media (max-width: 768px) {
+  .hiwPage {
+    padding-top: 90px;
+  }
+  .container {
+    padding: 2.5rem 1.25rem 5rem 1.25rem;
+  }
+  .header {
+    margin-bottom: 3rem;
+  }
+  .title {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    word-break: break-word;
+  }
+  .subtitle {
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
   .timeline::before {
     display: none;
   }
   .stepCard {
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 2rem;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    border-radius: 18px;
+    width: 100%;
+    box-sizing: border-box;
   }
   .stepNumber {
     margin-left: 0;
+    width: 3.25rem;
+    height: 3.25rem;
+    min-width: 3.25rem;
+    font-size: 1.4rem;
+  }
+  .stepContent h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+  .stepContent p {
+    font-size: 0.98rem;
+    line-height: 1.55;
   }
 }

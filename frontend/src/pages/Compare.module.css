@@ -4,6 +4,9 @@
   min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   padding-top: 80px;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .container {
@@ -153,5 +156,44 @@
 @media (max-width: 900px) {
   .splitGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .comparePage {
+    padding-top: 90px;
+  }
+  .container {
+    padding: 2.5rem 1.25rem 5rem 1.25rem;
+  }
+  .header {
+    margin-bottom: 3.5rem;
+  }
+  .title {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    word-break: break-word;
+  }
+  .subtitle {
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+  .reportCard {
+    padding: 1.5rem;
+    border-radius: 18px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .reportType {
+    font-size: 1.4rem;
+  }
+  .metricRow {
+    font-size: 1rem;
+  }
+  .verdictText {
+    font-size: 1.35rem;
+  }
+  .traceItem {
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 }
