@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     VERSION: str = "1.0.0"
     ENVIRONMENT: str = "development"
     MONGO_URI: str | None = None
+    FRONTEND_URL: str = "http://localhost:5173"
     
     # NLP / Scraping Config
     WORDS_PER_MINUTE: int = 238

@@ -42,11 +42,13 @@ class ExplanationEngine:
         """
         Determines the premium classification tier based on credibility and bias.
         """
-        if bias_score > 70:
-            return "Caution"
+        if bias_score > 70 or cred_score < 40:
+            return "High Risk Content"
         if cred_score >= 90:
             return "Exceptional"
         if cred_score >= 80:
+            if bias_score <= 30:
+                return "Highly Credible & Balanced"
             return "High"
         if cred_score >= 70:
             return "Reliable & Balanced"
@@ -107,7 +109,7 @@ class ExplanationEngine:
         if b_bd.framing >= 60: trace.append("Emotionally loaded framing negatively impacted the objectivity rating.")
         if b_bd.balance <= 40: trace.append("Lack of narrative balance strongly indicated structural bias.")
         
-        trace.append(f"Final analysis computed with {CredibilityExplainer._determine_level(credibility.credibility_score)} credibility and {BiasExplainer._determine_level(bias.bias_score)} bias.")
+        trace.append(f"Final analysis computed with {credibility.credibility_level} credibility and {bias.bias_level} bias.")
         
         return trace
 

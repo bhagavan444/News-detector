@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: veritas-backend
+    runtime: python
+    region: oregon
+    buildCommand: pip install -r backend/requirements.txt && python -m spacy download en_core_web_sm && python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PYTHONPATH
+        value: "."
+      - key: ENVIRONMENT
+        value: production
+      - key: FRONTEND_URL
+        value: https://news-detector.vercel.app
